@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------
+1. Create a repo on github then clone on your computer
+
+2. Create virtual environment ; activate it ; Install Django in it.
+
+3. Create django project
+
+4. Create desired apps  and register apps on settings.py
+
+5. Maintain app heirarcy , i.e place the files of apps in correct place 
+
+6. Setup global and app-specific Templates and static folder
+
+7. make dummy views and urls function, path inside each apps
+
+8. register the apps urls in global url 
+
+9. create superuser 
+
+10. Push the chages to github
+
+---------------------------------------------------------------------------
+Goodluck Basic setup is done.
+
+Continue with your project now...
+
+
