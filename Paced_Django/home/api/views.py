@@ -6,7 +6,7 @@ cards = [
     {
         "topic": "Multipage Navigation",
         "icon": "🌐",
-        "link": "multipage-navigation"
+        "link": "monthlist"
     },
     {
         "topic": "Simple Form [3-types]",

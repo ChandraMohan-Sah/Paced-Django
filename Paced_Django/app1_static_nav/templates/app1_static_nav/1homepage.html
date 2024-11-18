@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/app1.css' %}">
+
+
+<body>
+
+    <div class="w3-content w3-border w3-text-white w3-padding w3-serif" style="margin-top:40px">
+
+        <a href="" class="card-link">
+            <div class="card">
+                <div class="text w3-large">
+                    "Page 1 : Showing List of Months"
+                </div>
+            </div>
+        </a>
+        
+        <h3><b>[<label class="w3-text-yellow">Click on months</label>  to see details about month in : PAGE 2]</h3>
+            
+        {%for month in months %}
+        <ul>
+            <li>
+                <a href="{% url "month-detail" month=month %}" >{{month}}<br>
+            </li>
+        </ul>
+        
+        {% endfor %}
+    <div>
+</body>

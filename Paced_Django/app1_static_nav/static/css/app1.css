@@ -1,0 +1,23 @@
+body {
+    background-color: #555; /* Light grey background */
+}
+.card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from the parent */
+    display: block; /* Ensure the entire card is clickable */
+}
+
+h1, h3{
+    margin-left: 10px;
+    font-family: serif;
+}
+
+.key {
+    color: #00d7ff; /* Light blue */
+}
+
+
+.value {
+    color: #ff7a00; /* Orange */
+}
+

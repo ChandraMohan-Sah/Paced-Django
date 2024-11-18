@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/app1.css' %}">
+
+<body>
+
+    <div class="w3-content w3-border w3-text-white w3-padding w3-serif" style="margin-top:40px">
+        <a href="" class="card-link">
+            <div class="card">
+                <div class="text w3-large">
+                    "Page 3 : Showing Activites of Months"
+                </div>
+            </div>
+        </a>
+
+        <h1 class="key">Month : {{month}}</h1>
+        <h1 class="key">Activity for {{month}} is : {{activity}}</h1>
+
+        <br><br><br>
+
+        <div class="w3-border w3-border-red w3-round-large card-link w3-center w3-hover-pale-green">
+            <h4><a href="{%url "month-detail"  month=month%}" class="card-link">Back to Month DetailPage</a></h4>
+        </div><br>
+
+
+        
+    </div>
+
+    <br>
+    <br>
+    <div class=" w3-content w3-panel w3-leftbar w3-sand w3-xlarge w3-serif">
+        <p><i>"So Far You have travelled 3 pages. It proves "Chandramohan" Knows Multipage Navigation"</i></p>
+    </div> 
+    <div class="w3-content w3-border w3-border-red w3-round-large card-link w3-center w3-pale-blue">
+        <h4><a href="{%url "home" %}" class="card-link">Explore Other MiniProjects</a></h4>
+    </div>
+    
+</body>
+
+

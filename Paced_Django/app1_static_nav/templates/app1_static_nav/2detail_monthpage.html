@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/app1.css' %}">
+
+
+<body>
+
+    <div class="w3-content w3-border w3-text-white w3-padding w3-serif" style="margin-top:40px">
+            <div class="card">
+                <div class="text w3-large">
+                    "Page 2 : Showing Details of {{month}}"
+                </div>
+            </div>
+
+        <h1 class="key">Month: {{month}}</h1>
+        <h1 class="key">Month Detail : {{detail}}</h1>
+
+        <br><br><br>
+        
+        <div class="w3-border w3-border-red w3-round-large card-link w3-center w3-hover-pale-green">
+            <h4><a href="{%url "monthlist" %}" class="card-link">Back to Month List Page</a></h4>
+        </div>
+    
+            <br>
+        <div class="w3-border w3-border-red w3-round-large card-link w3-center w3-pale-blue">
+            <h4><a href="{%url "month-activity"  month=month%}" class="card-link">See Activity in this month</a></h4>
+        </div>
+    <div>
+        
+</body>
+
+
+
