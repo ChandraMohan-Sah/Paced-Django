@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+
+<style>
+    body {
+        background-color: #555; /* Light grey background */
+    }
+
+    .key {
+        color: #00d7ff; /* Light blue */
+    }
+    
+    
+    .value {
+        color: #ff7a00; /* Orange */
+    }
+    
+    .card-link {
+        text-decoration: none; /* Remove underline from the link */
+        color: inherit; /* Inherit text color from the parent */
+        display: block; /* Ensure the entire card is clickable */
+    }
+
+</style>
+
+<body>
+    <div class="w3-content">
+        <div class="w3-panel w3-border w3-center   w3-round-large key w3-large" style="margin-top:20px">
+            <p>Each belows card Represents a 
+                <label class="w3-text-green"><strong>[Mini Project]<strong><label></p>
+        </div>
+    </div>
+
+    {% include 'home/home.html' %}
+    <br>
+    <div class="w3-content">
+        <div class="w3-panel  w3-center w3-text-white " >
+            <p>Copyright © 2024 Chandra Mohan Sah. All Rights Reserved.</p>
+        </div>
+    </div>
+
+</body>
+</html>

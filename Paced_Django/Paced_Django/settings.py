@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'home',
     'app1_static_nav',
     'app2_simple_form',
     'app3_contact_form',
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'app6_pfso',
     'app7_sessions',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR /"static"
+            BASE_DIR /"templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {

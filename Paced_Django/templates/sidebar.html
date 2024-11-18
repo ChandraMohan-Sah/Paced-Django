@@ -1,0 +1,38 @@
+{% load static %}
+
+<style>
+  .resized-image {
+      width: 230px; /* Adjust the width as needed */
+      height: auto; /* Ensures the height scales proportionally */
+  }
+
+    .card-link {
+      text-decoration: none; /* Remove underline from the link */
+      color: inherit; /* Inherit text color from the parent */
+      display: block; /* Ensure the entire card is clickable */
+    }
+  </style>
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+
+        <!-- Sidebar/menu -->
+        <div class="w3-bar-block">
+
+            <div class="w3-panel w3-topbar w3-bottombar w3-border-teal w3-light-grey">
+                <a href="#" onclick="w3_close()" class="card-link">  <h1 class="w3-large w3-text-black  w3-left-align "><b>Multipage Navigation</b></h1></a>
+            </div><br>
+            
+         </div>
+
+    <div>
+        <a href="{% url "home" %}" class="w3-button w3-border w3-border-red w3-round-large "  >
+            Other Mini Projects
+        </a>
+    </div> 
+
+</nav>
+
+
