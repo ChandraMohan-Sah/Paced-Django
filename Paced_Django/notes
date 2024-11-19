@@ -1,0 +1,44 @@
+Avoiding sensitive data to be pushed in github
+
+1. pip install python-decouple
+-------------------------------
+
+2. .env
+-----------------------------
+SECRET_KEY=your-secret-key
+DATABASE_PASSWORD=your-database-password
+
+
+3. in settings.py 
+------------------------------
+from decouple import config
+
+# Secret key and other sensitive configurations
+SECRET_KEY = config("SECRET_KEY")
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your-database-name',
+        'USER': 'your-database-user',
+        'PASSWORD': config("DATABASE_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+
+
+4. .gitignore
+Add .env in this file
+-------------------------------------------
+
+5.using that variable in other file 
+from django.conf import settings
+
+def my_view(request):
+    secret_key = settings.SECRET_KEY
+    return HttpResponse(f"Your secret key is: {secret_key}")
+
+
+
+5. Now you can push 

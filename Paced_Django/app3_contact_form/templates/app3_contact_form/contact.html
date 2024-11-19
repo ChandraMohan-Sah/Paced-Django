@@ -1,0 +1,82 @@
+{% extends 'base2.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+
+<style>
+    .custom_style1 {
+        font-family: "Serif", sans-serif; /* w3-serif */
+        font-size: 1.2em; /* w3-large */
+    }
+
+    .background{
+        color: white;
+    }
+
+    .custom_style2 {
+        font-family: 'Courier New', Courier, monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 0.15em solid black;
+        width: 0;
+        animation: typing 3s steps(40) 1s 1 normal both, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+</style>
+
+<br><br>
+
+<div class="w3-content  w3-round w3-padding-large background w3-border" style="max-width: 1000px;margin-top:60px">
+    <div class="w3-row">
+
+        <!-- Left Half with Image -->
+        <div class="w3-col l6 w3-padding" style>
+            <img src="{% static 'images/mail2.webp' %}" alt="Static Image" style="max-width: 100%; height: auto; display: block; margin: auto;">
+        </div>
+        
+
+        <!-- Right Half with Contact Form -->
+        <div class="w3-col l6 w3-padding">
+            <h4 class="custom_style1 custom_style2">Buddy 😊, I am Available for Freelance</h4><hr>
+            <form action="{% url 'contact-post' %}" method="POST">
+                {% csrf_token %}
+                <div class="custom_style">
+                    {{ form_data.fullname.label_tag }}
+                    {{ form_data.fullname }}
+                    {{ form_data.fullname.errors }}
+                </div>
+                <div class="custom_style">
+                    {{ form_data.email.label_tag }}
+                    {{ form_data.email }}
+                    {{ form_data.email.errors }}
+                </div>
+                <div class="custom_style">
+                    {{ form_data.description.label_tag }}
+                    {{ form_data.description }}
+                    {{ form_data.description.errors }}
+                </div>
+                <button class="w3-green w3-round">Send</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

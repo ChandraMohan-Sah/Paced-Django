@@ -1,0 +1,92 @@
+{% extends 'base2.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+
+<body>
+
+        <div class="w3-content w3-text-white w3-large" style="margin-top:60px"><br>
+
+                <!-- Left Half with Submitted Data -->
+                <div class="w3-col l6 w3-padding w3-round-large " >
+                  
+                    <h4  style="margin-bottom: 20px;">Submitted Data [Max 5 Entries]</h4><hr>
+                    
+                    <div class="w3-responsive">
+                        <table class="w3-table-all w3-hoverable w3-centered w3-text-blue" style="background-color: #f7f7f7; border-radius: 10px;">
+                            <thead>
+                                <tr class="w3-blue" style="border-radius: 10px;">
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for review in reviews %}
+                                <tr class="w3-hover-light-grey">
+                                    <td class="w3-medium" style="padding: 10px;">{{ review.name }}</td>
+                                    <td class="w3-medium" style="padding: 10px;">{{ review.email }}</td>
+                                    <td class="w3-medium" style="padding: 10px;">{{ review.rating }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <a href="{% url 'delete-all' %}" class="w3-button w3-red w3-small w3-round-large" style="padding: 8px 16px; font-size: 16px;">
+                            Delete All
+                        </a>
+                    </div>
+                </div>
+
+
+            <!-- Right Half with Contact Form -->
+            <div class="w3-col l6 w3-padding  w3-border w3-round-large">
+                
+                    <h4>Simple Form Demonstration</h4><hr>
+
+                    {% if message %}
+                    <div class="w3-panel w3-round-large w3-pink w3-center w3-large" style="width:100%; position: relative;">
+                        <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+                        {{message}}
+                    </div>
+                    {% endif %}
+            
+
+                    <form action="{% url 'simple-form' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="custom_style">
+                            {{ form_data.name.label_tag }}
+                            {{ form_data.name }}
+                            {{ form_data.name.errors }}
+                        </div>
+                        <div class="custom_style">
+                            {{ form_data.email.label_tag }}
+                            {{ form_data.email }}
+                            {{ form_data.email.errors }}
+                        </div>
+                        <div class="custom_style">
+                            {{ form_data.review_text.label_tag }}
+                            {{ form_data.review_text }}
+                            {{ form_data.review_text.errors }}
+                        </div>
+                        <div class="custom_style">
+                            {{ form_data.rating.label_tag }}
+                            {{ form_data.rating }}
+                            {{ form_data.rating.errors }}
+                        </div><br>
+                        <button class="w3-green w3-round" >Send</button>
+                    </form>
+               
+            </div>
+
+        </div>
+
+
+</body>
+
+
+{% endblock %}

@@ -11,12 +11,12 @@ cards = [
     {
         "topic": "Simple Form [3-types]",
         "icon": "📝",
-        "link": "home"
+        "link": "simple-form"
     },
     {
         "topic": "Contact Form [with SMTP]",
         "icon": "✉️",
-        "link": "home"
+        "link": "contact-post"
     },
     {
         "topic": "File Uploads",
