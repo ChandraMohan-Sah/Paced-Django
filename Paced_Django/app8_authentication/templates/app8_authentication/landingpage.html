@@ -34,17 +34,21 @@
 
             <div class="w3-container w3-border w3-round-large w3-padding ">
                 <a href="{% url "login-app8" %}">
-                    <button class="w3-left">login</button>
+                    <button class="w3-green w3-round w3-left">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
                  </a>
                 <a href="{% url "register-app8" %}">
-                    <button class="w3-right">Register</button>
+                    <button class="w3-pink w3-round w3-right">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
                  </a>
                 
             </div>
             <div class="w3-container w3-center w3-padding w3-margin-top">
                 <!-- Redirects to the Google login URL through social-auth-app-django -->
-                <a href="#">
-                    <button class="w3-pink w3-round-large "> 🌐 Login with Google</button>
+                <a href="{% url "google_login" %}">
+                    <button class="w3-green w3-round-large "> <i class="fab fa-google"></i> Login with Google</button>
                 </a>
             </div>
             
@@ -55,4 +59,4 @@
 </div>
 
 
-{% endblock %}
+{% endblock %} 

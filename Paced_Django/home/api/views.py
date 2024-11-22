@@ -29,12 +29,7 @@ cards = [
         "link": "home"
     },
     {
-        "topic": "Pagination",
-        "icon": "➡️",
-        "link": "home"
-    },
-    {
-        "topic": "Filter, Search, Order",
+        "topic": "Pagination, Filter, Search, Order",
         "icon": "🔍",
         "link": "home"
     },
@@ -60,6 +55,16 @@ cards = [
     },
     {
         "topic": "Capstone 3 [Chat App]",
+        "icon": "👨‍🎓",
+        "link": "home"
+    },
+    {
+        "topic": "Payment Gateway",
+        "icon": "➡️",
+        "link": "home"
+    },
+    {
+        "topic": "Capstone 4 [E-Commerce Website]",
         "icon": "👨‍🎓",
         "link": "home"
     },

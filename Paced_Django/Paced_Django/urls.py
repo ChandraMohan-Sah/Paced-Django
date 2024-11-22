@@ -1,30 +1,16 @@
-"""
-URL configuration for Paced_Django project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
 
 # Media File Namespace
 from django.conf import settings
 from django.conf.urls.static import static
-
+from app8_authentication.app8_api import google_auth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.api.urls")),
+    #social urls
+    path('complete/google/', google_auth.google_callback, name='google_callback'),
 
     path('app1/', include("app1_static_nav.app1_api.urls")),
     path('app2/', include("app2_simple_form.app2_api.urls")),
@@ -34,7 +20,6 @@ urlpatterns = [
     path('app6/', include("app6_pfso.app6_api.urls")),
     path('app7/', include("app7_sessions.app7_api.urls")),
     path('app8/', include("app8_authentication.app8_api.urls")),
-    path('auth/', include('social_django.urls', namespace='social')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

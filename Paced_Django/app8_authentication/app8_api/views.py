@@ -12,6 +12,8 @@ from django.contrib.auth.tokens import default_token_generator
 from .email_verification import verify_email 
 from django.contrib.auth.decorators import login_required
 
+#Google Auth
+
 
 def resend_verification_email(request):
     if request.method == "POST":
@@ -134,7 +136,14 @@ def deleteUsers(request):
 
 
 def LandingPage(request):
-    context={
+    if request.user.is_authenticated:
+        context = {
+            "message":"You were already logged in. First logout.",
+            "sidebar_content": "Authentication Demo"
+        }
+        return render(request, 'app8_authentication/afterlogin.html', context)
+
+    context = {
         "sidebar_content": "Authentication Demo"
     }
     return render(request, 'app8_authentication/landingpage.html', context)

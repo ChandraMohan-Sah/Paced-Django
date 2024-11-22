@@ -10,6 +10,13 @@ SECRET_KEY = config("SECRET_KEY")
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') #password generated at google manager
 
+CLIENT_ID = config("CLIENT_ID")
+CLIENT_SECRET = config("CLIENT_SECRET")
+REDIRECT_URI = config("REDIRECT_URI")
+TOKEN_URL = config("TOKEN_URL")
+USER_INFO_URL = config("USER_INFO_URL")
+
+
 #smtp server setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -18,9 +25,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD #password generated at google manager
-
-
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,8 +49,12 @@ INSTALLED_APPS = [
     'app6_pfso',
     'app7_sessions',
     'app8_authentication',
+
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 
@@ -158,7 +166,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "after-login-app8/"
 LOGIN_URL = "login-app8/"
 
-
+#Direct google login
+#https://accounts.google.com/o/oauth2/auth?client_id=98948128488-lhv9kup2b4oqekb13furatbinfn5m0r0.apps.googleusercontent.com&response_type=code&redirect_uri=http://127.0.0.1:8000/complete/google/&scope=openid%20email%20profile
 
 
 
