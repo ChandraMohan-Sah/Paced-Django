@@ -1,0 +1,51 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'app3_contact_form/css/app3.css' %}">
+
+<div class="w3-content  w3-round w3-padding-large background w3-border w3-text-white" style="max-width: 1000px;margin-top:80px">
+    <div class="w3-row">
+
+        <!-- Left Half with Image -->
+        <div class="w3-col l6 w3-padding" style>
+            <img src="{% static 'app8_authentication/images/registered.png' %}" alt="Static Image" style="max-width: 100%; height: auto; display: block; margin: auto;">
+        </div>
+        
+
+        <!-- Right Half with Contact Form -->
+        <div class="w3-col l6 w3-padding">
+            
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="w3-panel w3-green w3-round w3-card-4 w3-margin-bottom" role="alert">
+                        <span>{{ message }}</span>
+                        <button onclick="this.parentElement.style.display='none'" class="w3-btn w3-green w3-tiny w3-round">Close</button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="w3-monospace">Ok , I identified You🐒 But login is must</p>
+            {% endif %}
+
+            <form action={% url "login-app8" %} method="POST" class="w3-container w3-light-grey w3-padding-16 w3-round">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                
+                    <button class="w3-green w3-round">Login</button>
+                </form><br><hr>
+
+                <form action="{% url "password_reset" %}">
+                    <button class="w3-red w3-round ">Forget Password ??</button>
+                </form>
+                
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

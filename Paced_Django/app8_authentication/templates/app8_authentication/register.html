@@ -1,0 +1,65 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'app3_contact_form/css/app3.css' %}">
+
+
+<div class="w3-content  w3-round w3-padding-large background w3-border w3-text-white" style="max-width: 1000px;margin-top:80px">
+<br>
+
+    {% if message %}
+    <div class="w3-panel w3-monospace w3-round-large w3-pink w3-center w3-large" style="width:100%; position: relative;">
+        <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+        {{message}}
+    </div>
+        <form method="POST" action="{% url 'delete-all-users' %}" class="w3-center">
+            {% csrf_token %}
+            <button type="submit" class="w3-button w3-red w3-round" style="margin-top: 20px;">Delete All Other Users</button>
+        </form><br><hr>
+    {% else %}
+        <h2 class="w3-monospace w3-center">Complete your Registration Now</h2><hr>
+    {% endif %}
+
+    <form action="{% url "register-app8" %}" method="POST" class="w3-container  w3-light-grey w3-padding-16 w3-round">
+        {% csrf_token %}
+    
+        <div class="w3-margin-bottom custom_style">
+            {{ register_form.username.errors }}
+            {{ register_form.username.label_tag }}
+            {{ register_form.username }}
+            
+        </div>
+    
+        <div class="w3-margin-bottom custom_style">
+            {{ register_form.email.errors }}
+            {{ register_form.email.label_tag }}
+            {{ register_form.email }}
+            
+        </div>
+    
+        <div class="w3-margin-bottom custom_style">
+            {{ register_form.password1.errors }}
+            {{ register_form.password1.label_tag }}
+            {{ register_form.password1 }}
+            
+        </div>
+    
+        <div class="w3-margin-bottom custom_style">
+            {{ register_form.password2.errors }}
+            {{ register_form.password2.label_tag }}
+            {{ register_form.password2 }}
+            
+        </div>
+    
+        <button class="w3-green w3-round">Register</button>
+    </form>
+    
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'app3_contact_form/css/app3.css' %}">
+
+    <div class="w3-content  w3-round w3-padding-large background w3-border w3-text-white" style="max-width: 1000px;margin-top:80px">
+
+        <div class="w3-row">
+
+
+            <!-- Left Half with Image -->
+            <div class="w3-col l6 w3-padding" style>
+                <img src="{% static 'app8_authentication/images/king.webp' %}" alt="Static Image" style="max-width: 100%; height: auto; display: block; margin: auto;">
+            </div>
+            
+
+
+            <!-- Right Half with Contact Form -->
+            <div class="w3-col l6 w3-padding">
+                <h4 class="w3-monospace w3-panel w3-round w3-sand">{{message}}</h4><br>
+                <h4 class="w3-monospace">Finally I also got a pass😈!</h4><hr>
+                <div>
+                    <h5 class="w3-monospace w3-center">[Let's Begin the Journey]</h5>
+                </div><br>
+
+                <div class="w3-container w3-border w3-round-large w3-padding ">
+                    <a href="{% url "login-app8" %}">
+                        <button class="w3-left">Login Again</button>
+                    </a>
+                    <a href="{% url "logout-app8" %}">
+                        <button class="w3-right">Register</button>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

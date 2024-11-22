@@ -1,0 +1,52 @@
+{% extends 'base2.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+
+<style>
+    .sty{
+        display: flex; 
+        align-items: center; 
+        gap: 10px;
+    }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/app4.css' %}">
+<br><br>
+
+<div class="w3-content  w3-round w3-padding-large background w3-border" style="max-width: 1000px;margin-top:60px">
+
+    <h4 class="custom_style1 custom_style2">
+        Generally there are two types of upload category in Django.<br>
+        <ul>
+            <li>File Uploads [any file type can be uploaded]</li>
+            <li>Image Uploads [server allows only images to be uploaded]</li>
+        <ul>
+    </h4><hr>
+
+    <div class="w3-monospace">
+        <h3 class="w3-monospace" >Upload Any File</h3>
+        <form class=" w3-border w3-round w3-padding sty" action="{% url 'upload-file-app4' %}" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <label for="fileUpload">Choose file:</label>
+            <input type="file" id="fileUpload" name="fileUpload">
+            <button class="w3-green w3-round" type="submit">Upload</button>
+        </form>
+    </div><br><br>
+
+
+    <div class="w3-monospace">
+        <h3 class="w3-monospace" >Upload only image</h3>
+        <form class=" w3-border w3-round w3-padding sty" action="{% url 'upload-file-app4' %}" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <label for="imageUpload">Choose Image:</label>
+            <input type="file" id="imageUpload" name="imageUpload">
+            <button class="w3-green w3-round" type="submit">Upload</button>
+        </form>
+    </div>
+  
+</div>
+
+{% endblock %}

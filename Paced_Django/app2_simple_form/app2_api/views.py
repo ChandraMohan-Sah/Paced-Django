@@ -48,8 +48,10 @@ def DeleteSimpleForm(request):
 def ThankYou(request):
     context = {
         "sidebar_content": "Simple Form Demo",
+        "content": "Thanks-for Submitting the form. Demonstration Successful 😊",
+        "go_back": "simple-form"
     }
-    return render(request, "app2_simple_form/thank-you.html", context)
+    return render(request, "thank-you.html", context)
 
 
 

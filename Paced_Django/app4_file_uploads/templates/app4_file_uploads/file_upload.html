@@ -1,0 +1,78 @@
+{% extends 'base2.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+
+<style>
+    .sty{
+        display: flex; 
+        align-items: center; 
+        gap: 10px;
+    }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/app4.css' %}">
+
+<div class="w3-content  w3-round w3-padding-large background w3-border w3-hide-small" style="max-width: 1000px;margin-top:70px;">
+    <!--Message appears if daatabase full-->
+    {% if message %}
+    <div class="w3-panel w3-round-large w3-pink w3-center w3-large" style="width:100%; position: relative;">
+        <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+        {{message}}
+
+    </div>
+        <form method="POST" action="{% url 'delete-all-uploads' %}" class="w3-center">
+            {% csrf_token %}
+            <button type="submit" class="w3-button w3-red w3-round" style="margin-top: 20px;">Delete All Previous Uploads</button>
+        </form>
+    {% endif %}
+    
+
+    <!--General Form For Upload-->
+    <h4 class="custom_style1 custom_style2 w3-hide-small">
+        READ ME<br>
+        -------<br>
+        Generally there are two types of upload category in Django.<br>
+        <ul>
+            <li>File Uploads [any file type can be uploaded]</li>
+            <li>Image Uploads [server allows only images to be uploaded]</li>
+        <ul><br>
+        (Note1: It should be noted that database donot store the file and image<br>
+        directly instead they store the location where they are stored.)<br>
+
+        (Note2: Manual Deletion of media files is prohibited because in database<br>
+        location of that file is not deleted yet.)
+    </h4>
+    <hr>
+    <div class="w3-monospace w3-container">
+        <h3 class="w3-monospace">Test File and Image Upload</h3>
+        <form class="w3-border w3-round w3-padding sty" action="{% url 'upload-app4' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- File Upload Field -->
+            <label for="file_upload" class="w3-text-pink">{{ file_form.file_upload.label }}</label><br>
+            {{ file_form.file_upload }}<br><br>
+            
+            <!-- Image Upload Field -->
+            <label for="image_upload" class="w3-text-pink">{{ image_form.image_upload.label }}</label><br>
+            {{ image_form.image_upload }}<br><br>
+            
+            <!-- Submit Button -->
+            <button class="w3-green w3-round" type="submit">Upload</button>
+        </form>
+    </div>
+    <br><br>
+</div>
+
+    <!--General Form For Upload; for smallscreen-->
+{% include 'app4_file_uploads/small_screen_show.html' %}
+
+</div>
+
+{% endblock %}
+
+
+
+

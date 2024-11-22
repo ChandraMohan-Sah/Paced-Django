@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Media File Namespace
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.api.urls")),
@@ -28,4 +33,9 @@ urlpatterns = [
     path('app5/', include("app5_crud_operation.app5_api.urls")),
     path('app6/', include("app6_pfso.app6_api.urls")),
     path('app7/', include("app7_sessions.app7_api.urls")),
-]
+    path('app8/', include("app8_authentication.app8_api.urls")),
+    path('auth/', include('social_django.urls', namespace='social')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

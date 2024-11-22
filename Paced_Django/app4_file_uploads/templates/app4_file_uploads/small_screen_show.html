@@ -1,0 +1,27 @@
+
+<div class="w3-content w3-round w3-padding-large background w3-border w3-hide-large w3-hide-medium" style="max-width: 1000px; margin-top: 80px;">
+
+    <div class="w3-monospace w3-container">
+        <h3 class="w3-monospace">Test File and Image Upload</h3>
+        <form  action="{% url 'upload-app4' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- File Upload Field -->
+            <div>
+                <label for="file_upload" class="w3-text-pink">{{ file_form.file_upload.label }}</label><br>
+                {{ file_form.file_upload }}
+            </div>
+            
+            <!-- Image Upload Field -->
+            <div style="margin-top: 20px;">
+                <label for="image_upload" class="w3-text-pink">{{ image_form.image_upload.label }}</label><br>
+                {{ image_form.image_upload }}
+            </div>
+            
+            <!-- Submit Button -->
+            <div style="margin-top: 20px;">
+                <button class="w3-green w3-round" type="submit">Upload</button>
+            </div>
+        </form>
+</div><br>
+

@@ -21,11 +21,11 @@ cards = [
     {
         "topic": "File Uploads",
         "icon": "📤",
-        "link": "home"
+        "link": "upload-app4"
     },
     {
-        "topic": "CRUD Operation",
-        "icon": "💾",
+        "topic": "Capstone 1 [Simple Blog]",
+        "icon": "👨‍🎓",
         "link": "home"
     },
     {
@@ -39,20 +39,30 @@ cards = [
         "link": "home"
     },
     {
+        "topic": "Authentication [2-types]",
+        "icon": "🔐",
+        "link": "landing-page-app8"
+    },
+    {
         "topic": "Session Management",
         "icon": "⏳",
         "link": "home"
     },
     {
-        "topic": "Authentication [5-types]",
-        "icon": "🔐",
+        "topic": "Capstone 2 [ToDo App]",
+        "icon": "👨‍🎓",
         "link": "home"
     },
     {
         "topic": "Web Sockets",
         "icon": "📡",
         "link": "home"
-    }
+    },
+    {
+        "topic": "Capstone 3 [Chat App]",
+        "icon": "👨‍🎓",
+        "link": "home"
+    },
 ]
 
 

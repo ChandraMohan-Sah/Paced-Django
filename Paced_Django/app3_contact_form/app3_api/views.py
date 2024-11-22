@@ -62,12 +62,13 @@ def contactPOST(request):
 
 
 
+
 def ThankYou(request):
-    context={
-        "sidebar_content" : "Contact Me [using SMTP]"
+    context = {
+        "sidebar_content": "Simple Form Demo",
+        "content": "Your Form was Submitted to Owners Email using smtp service. Demonstration successfull 😊",
+        "go_back": "contact-post"
     }
-    return render(request, "app3_contact_form/thank-you.html", context)
-
-
+    return render(request, "thank-you.html", context)
 
 
