@@ -1,0 +1,3 @@
+venv/
+.env
+Paced_Django/manage.py

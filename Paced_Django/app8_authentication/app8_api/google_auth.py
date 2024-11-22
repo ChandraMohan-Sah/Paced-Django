@@ -25,64 +25,6 @@ def google_login(request):
     )
     return redirect(auth_url)
 
-
-
-
-# def google_callback(request):
-#     # Step 1: Get the authorization code from the URL
-#     code = request.GET.get("code")
-#     if not code:
-#         return JsonResponse({"error": "No code provided by Google"})
-
-#     # Step 2: Exchange the authorization code for an access token
-#     token_data = {
-#         "code": code,
-#         "client_id": CLIENT_ID,
-#         "client_secret": CLIENT_SECRET,
-#         "redirect_uri": REDIRECT_URI,
-#         "grant_type": "authorization_code",
-#     }
-
-#     # Send POST request to Google's token endpoint to get the access token
-#     token_response = requests.post(TOKEN_URL, data=token_data)
-#     token_json = token_response.json()
-
-#     if "access_token" not in token_json:
-#         return JsonResponse({"error": "Failed to get access token", "details": token_json})
-
-#     access_token = token_json["access_token"]
-
-#     # Step 3: Get the user's profile information using the access token
-#     user_info_response = requests.get(
-#         USER_INFO_URL,
-#         headers={"Authorization": f"Bearer {access_token}"}
-#     )
-#     user_info = user_info_response.json()
-
-#     # Step 4: Create or get the user based on email
-#     email = user_info.get('email')
-#     username = email.split('@')[0]  # Set username as the part before the '@' in email
-
-#     # Check if the user already exists in the system based on the email
-#     try:
-#         user = User.objects.get(username=username)
-#     except User.DoesNotExist:
-#         # If the user doesn't exist, create a new user
-#         user = User.objects.create_user(
-#             username=username,  # Set the username as the email prefix
-#             email=email,  # Store the email in the email field
-#             password=None  # No password needed for Google login
-#         )
-#         user.first_name = user_info.get("given_name", "")
-#         user.last_name = user_info.get("family_name", "")
-#         user.save()
-
-#     # Step 5: Log the user in manually, specifying the backend
-#     login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-
-#     # Redirect to a home page or dashboard
-#     return redirect("after-login-app8") # Redirect to any page you want the user to go after logging in
-
 def google_callback(request):
     # Step 1: Get the authorization code from the URL
     code = request.GET.get("code")
