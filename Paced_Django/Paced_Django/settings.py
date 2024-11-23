@@ -9,13 +9,16 @@ from decouple import config
 SECRET_KEY = config("SECRET_KEY")
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') #password generated at google manager
+ALLOWED_HOSTS=[config('DJANGO_ALLOWED_HOST')]
+DEBUG=config('DJANGO_DEBUG')
+
 
 CLIENT_ID = config("CLIENT_ID")
 CLIENT_SECRET = config("CLIENT_SECRET")
 REDIRECT_URI = config("REDIRECT_URI")
 TOKEN_URL = config("TOKEN_URL")
 USER_INFO_URL = config("USER_INFO_URL")
-
+ 
 
 #smtp server setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -26,10 +29,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD #password generated at google manager
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
