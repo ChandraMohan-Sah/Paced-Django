@@ -30,6 +30,7 @@ DATABASES = {
 
 4. .gitignore
 Add .env in this file
+Add venv/ for folders
 -------------------------------------------
 
 5.using that variable in other file 
