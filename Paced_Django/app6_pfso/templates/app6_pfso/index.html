@@ -1,0 +1,66 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+a {
+  text-decoration: none; /* Remove underline from all links */
+}
+
+</style>
+
+<div class= " w3-content w3-round-large w3-border w3-border-white w3-padding " style="margin-top:80px;">
+    <div class="w3-content w3-center w3-serif w3-round-large w3-border-pink w3-text-white " >
+      <h3 class=" w3-monospace "> Pagination Demo</h3>
+    </div><br>
+
+
+
+<div class="w3-center" >
+
+      {% for animal in page_obj %}
+      <div class="w3-content w3-grey w3-border w3-serif w3-round-large w3-border-pink w3-hover-shadow" style="padding:12px 6px;margin-top:10px;">
+        <div class="w3-row-padding" style="padding:5px">
+          <div class="w3-col m6 " style="text-align: left; padding-top: 80px;">
+            <h3><b>About {{ animal.name }}</b></h3>
+            <p>{{ animal.description }}</p>
+          </div>
+          <div class="w3-col m6">
+            <img class="w3-image w3-round-large" src="{% static animal.image %}" alt="{{ animal.name }}" width="1000" height="450">
+          </div>
+        </div>
+      </div><br>
+      {% endfor %}
+
+
+    <!-- Pagination Controls -->
+    <div class="w3-content w3-text-white w3-bar w3-border w3-margin-top ">
+      {% if page_obj.has_previous %}
+          <a href="?page=1" class="w3-bar-item w3-button ">&laquo; First</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="w3-bar-item w3-button">Previous</a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+              <a href="?page={{ num }}" class="w3-bar-item w3-button w3-blue">{{ num }}</a>
+          {% else %}
+              <a href="?page={{ num }}" class="w3-bar-item w3-button">{{ num }}</a>
+          {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="w3-bar-item w3-button">Next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="w3-bar-item w3-button">Last &raquo;</a>
+      {% endif %}
+    </div>
+</div>
+
+  <br><hr>
+  <a href="{% url "fso-app6" %}">
+    <div class="w3-content w3-center w3-border w3-serif w3-round-large w3-border-pink w3-text-white w3-sand w3-text-black">
+      <h4 class=" w3-monospace "> Filtering, Ordering, Searching Demo &raquo;</h4>
+    </div>     
+  </a>
+{% endblock %}

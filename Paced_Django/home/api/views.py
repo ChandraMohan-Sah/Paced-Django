@@ -24,13 +24,13 @@ cards = [
         "link": "upload-app4"
     },
     {
-        "topic": "Capstone 1 [Simple Blog]",
-        "icon": "👨‍🎓",
-        "link": "home"
-    },
-    {
         "topic": "Pagination, Filter, Search, Order",
         "icon": "🔍",
+        "link": "landing-page-app6"
+    },
+    {
+        "topic": "Capstone 1 [Simple Blog]",
+        "icon": "👨‍🎓",
         "link": "home"
     },
     {
@@ -49,13 +49,8 @@ cards = [
         "link": "home"
     },
     {
-        "topic": "Web Sockets",
+        "topic": "Web Sockets: Async Comm",
         "icon": "📡",
-        "link": "home"
-    },
-    {
-        "topic": "Capstone 3 [Chat App]",
-        "icon": "👨‍🎓",
         "link": "home"
     },
     {
@@ -64,7 +59,7 @@ cards = [
         "link": "home"
     },
     {
-        "topic": "Capstone 4 [E-Commerce Website]",
+        "topic": "Capstone 3 [E-Commerce]",
         "icon": "👨‍🎓",
         "link": "home"
     },

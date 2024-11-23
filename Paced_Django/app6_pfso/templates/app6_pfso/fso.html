@@ -1,0 +1,150 @@
+{% extends 'base2.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'app1_static_nav/css/app1.css' %}">
+
+{% block content %}
+<style>
+    .accordion-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .accordion-header {
+        cursor: pointer;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+    }
+    .accordion-header:hover {
+        background-color: #0056b3;
+    }
+    .accordion-content {
+        display: none;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        padding: 15px 20px;
+        border-radius: 0 0 8px 8px;
+    }
+    .accordion-content a {
+        display: block;
+        color: #007BFF;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .accordion-content a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+
+        <div class="w3-content w3-text-white w3-large" style="margin-top:60px"><br>
+
+            <!-- Left Half with Submitted Data -->
+            <div class="w3-col l6 w3-padding w3-round-large w3-panel w3-grey">
+                <!-- Filtering Section -->
+                <h3 class="w3-text-white w3-monospace">Filtering</h3>
+                <div class="w3-margin-bottom">
+                    <label>
+                        <input type="radio" name="filter" value="zoom-id" class="w3-radio">
+                        Zoom ID
+                    </label>
+                </div>
+
+                <!-- Ordering Section -->
+                <h3 class="w3-text-white w3-monospace">Ordering</h3>
+                <div class="w3-margin-bottom">
+                    <label>
+                        <input type="radio" name="order" value="lexicographical" class="w3-radio">
+                        Lexicographically
+                    </label><br>
+                    <label>
+                        <input type="radio" name="order" value="zoom-id" class="w3-radio">
+                        By Zoom ID
+                    </label>
+                </div>
+
+                <h3 class="w3-text-white w3-monospace">Search</h3>
+                <div class="w3-padding w3-padding-16">
+                    <div class="w3-display-container">
+                        <input class="w3-input w3-border w3-large" 
+                               type="text" 
+                               placeholder="Search by animal name ..." 
+                               style="padding-left: 20px; border-radius: 8px; font-size: 16px;" 
+                               onkeyup="filterSearch(this)">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Right Half with Contact Form -->
+            <div class="w3-col l6 w3-padding  ">
+                <br>
+                    {% if message %}
+                    <div class="w3-panel w3-round-large w3-pink w3-center w3-large" style="width:100%; position: relative;">
+                        <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+                        {{message}}
+                    </div>
+                    {% endif %}
+
+                    <table class="w3-table ">
+                        <tr>
+                          <th>Animal Name</th>
+                          <th>Zoo ID</th>
+                        </tr>
+                        <tr>
+                          <td>Elephant</td>
+                          <td>500</td>
+                    
+                        </tr>
+                        <tr>
+                          <td>Lion</td>
+                          <td>600</td>
+                     
+                        </tr>
+                        <tr>
+                          <td>Cat</td>
+                          <td>700</td>
+                        </tr>
+                        <tr>
+                            <td>Giraffe</td>
+                            <td>800</td>
+                          </tr>
+                          <tr>
+                            <td>Rhino</td>
+                            <td>900</td>
+                          </tr>
+                    </table>
+            </div>
+        </div>
+
+
+</body>
+
+<script>
+    function toggleAccordion(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+        } else {
+            content.style.display = "block";
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+        }
+    }
+</script>
+
+
+{% endblock %}
