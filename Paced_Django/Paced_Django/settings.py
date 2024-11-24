@@ -9,7 +9,8 @@ from decouple import config
 SECRET_KEY = config("SECRET_KEY")
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') #password generated at google manager
-ALLOWED_HOSTS=[config('DJANGO_ALLOWED_HOST')]
+
+ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOST', default='').split(',')
 DEBUG=config('DJANGO_DEBUG')
 
 
@@ -171,3 +172,6 @@ LOGIN_URL = "login-app8/"
 
 
 
+#Heroku Settings
+import django_heroku
+django_heroku.settings(locals())

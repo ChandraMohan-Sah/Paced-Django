@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 
 from app4_file_uploads.forms import FileUploadForm, ImageUploadForm
 from app4_file_uploads.models import FileUploads, ImageUploads
-
+import os
 
 class CreateUploadView(View):
     def get(self, request):
@@ -73,10 +73,32 @@ class CreateUploadView(View):
         return render(request, "app4_file_uploads/file_upload.html", context)
 
 
+
+'''----Deletes location only from database----'''
+# def DeleteImages_and_Files(request):
+#     ImageUploads.objects.all().delete()
+#     FileUploads.objects.all().delete()
+#     return redirect("upload-app4")
+
+
+'''------Deletes location from database, As well as from file heirarchy----'''
 def DeleteImages_and_Files(request):
-    ImageUploads.objects.all().delete()
-    FileUploads.objects.all().delete()
+    # Delete image files from the file system
+    image_uploads = ImageUploads.objects.all()
+    for image in image_uploads:
+        if image.image_upload and os.path.isfile(image.image_upload.path):  # Use 'image_upload'
+            os.remove(image.image_upload.path)  # Delete the image from the file system
+    image_uploads.delete()  # Delete records from the database
+    
+    # Delete file uploads from the file system
+    file_uploads = FileUploads.objects.all()
+    for file in file_uploads:
+        if file.file_upload and os.path.isfile(file.file_upload.path):  # Use 'file_upload'
+            os.remove(file.file_upload.path)  # Delete the file from the file system
+    file_uploads.delete()  # Delete records from the database
+    
     return redirect("upload-app4")
+
 
 
 #Thank-You Page

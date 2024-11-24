@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class TableData(models.Model):
+    animal = models.CharField(max_length=100)
+    zoom_id = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f"{self.animal} ({self.zoom_id})"
