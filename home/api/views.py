@@ -63,6 +63,11 @@ cards = [
         "icon": "👨‍🎓",
         "link": "home"
     },
+    {
+    "topic": "Model Deployment",
+    "icon": "🚀",
+    "link": "deploy-model"
+    }
 ]
 
 
