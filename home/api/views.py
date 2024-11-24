@@ -41,7 +41,7 @@ cards = [
     {
         "topic": "Session Management",
         "icon": "⏳",
-        "link": "home"
+        "link": "session-mgmt-app7"
     },
     {
         "topic": "Capstone 2 [ToDo App]",
@@ -66,7 +66,7 @@ cards = [
     {
     "topic": "Model Deployment",
     "icon": "🚀",
-    "link": "deploy-model"
+    "link": "home"
     }
 ]
 

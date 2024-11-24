@@ -1,0 +1,202 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/app1.css' %}">
+
+<style>
+    .table-row {
+      display: flex; /* Arrange items in a row */
+      justify-content: center; /* Center items horizontally */
+      align-items: center; /* Center items vertically */
+      gap: 5px; /* Add spacing between boxes */
+    }
+  
+    .box {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 6px 12px; /* Adjust padding for proportionate sizing */
+      font-size: 16px; /* Adjust font size */
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 5px;
+    }
+
+    .hover {
+        transition: transform 0.3s ease; /* Smooth transition */
+      }
+    
+      .hover:hover {
+        transform: scale(1.1); /* Zooms the image */
+      }
+
+</style>
+  
+
+
+<body>
+
+    <div class="w3-content w3-round w3-padding-large w3-text-white w3-border" style="max-width: 1000px; margin-top:60px">
+        <h3 class="w3-center w3-monospace">Let's See the Difference Between Persistent and Temporary Data Storage.</h3>
+
+        <div class="w3-row" >
+            
+            
+                <div class="w3-col w3-quarter ">
+                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
+                        <img src="{% static 'app7_sessions/images/tray.png' %}" class="w3-border w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
+                        
+                            <p class="w3-center w3-panel w3-round-large">
+                                <div class="table-row">
+                                    <span class="box">-</span>
+                                    <span class="box w3-monospace">1</span>
+                                    <span class="box">+</span>
+                                </div>
+                            </p>
+                            <p class="w3-center w3-panel w3-round-large ">
+                                <a href="">
+                                    <div class="table-row">
+                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
+                                    </div>
+                                </a>
+                            </p>
+                    </div>
+                </div>
+            
+
+                <div class="w3-col w3-quarter ">
+                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
+                        <img src="{% static 'app7_sessions/images/trolly.png' %}" class="w3-border w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
+                        
+                            <p class="w3-center w3-panel w3-round-large">
+                                <div class="table-row">
+                                    <span class="box">-</span>
+                                    <span class="box w3-monospace">1</span>
+                                    <span class="box">+</span>
+                                </div>
+                            </p>
+                        
+                            <p class="w3-center w3-panel w3-round-large ">
+                                <a href="">
+                                    <div class="table-row">
+                                        <span class="box  hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
+                                    </div>
+                                </a>
+                            </p>
+                    </div>
+                </div>
+
+
+                <div class="w3-col w3-quarter ">
+                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
+                        <img src="{% static 'app7_sessions/images/wash.png' %}" class="w3-border  w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
+                        
+                            <p class="w3-center w3-panel w3-round-large">
+                                <div class="table-row">
+                                    <span class="box">-</span>
+                                    <span class="box w3-monospace">1</span>
+                                    <span class="box">+</span>
+                                </div>
+                            </p>
+                        
+                            <p class="w3-center w3-panel w3-round-large ">
+                                <a href="">
+                                    <div class="table-row">
+                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
+                                    </div>
+                                </a>
+                            </p>
+                    </div>
+                </div>
+
+                <div class="w3-col w3-quarter ">
+                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
+                        <img src="{% static 'app7_sessions/images/gloves.png' %}" class="w3-border   w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
+                        
+                            <p class="w3-center w3-panel w3-round-large">
+                                <div class="table-row">
+                                    <span class="box">-</span>
+                                    <span class="box w3-monospace">1</span>
+                                    <span class="box">+</span>
+                                </div>
+                            </p>
+                        
+                            <p class="w3-center w3-panel w3-round-large ">
+                                <a href="">
+                                    <div class="table-row">
+                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
+                                    </div>
+                                </a>
+                            </p>
+                    </div>
+                </div>
+        </div>
+
+        <hr>
+        <h3 class="w3-monospace">Advantages of Session Management</h3>
+        <div class="w3-row">
+            <ul class="w3-monospace">
+                     <li>User-specific data storage for personalized experiences.</li>
+                    <li>Reduces the need for repeated user inputs.</li>
+                    <li>Supports scalability and multi-user environments.</li>
+            </ul>
+        </div><hr>
+
+        <div class="w3-row">
+
+            <div class="w3-col w3-half ">
+                <div class=" w3-margin w3-border w3-round-large w3-padding-small w3-grey ">
+
+                <h3 class="w3-center w3-serif">Data Stored using Database <br>[Persists Permanently]</h3>
+                <hr>
+                {% if user.is_authenticated %}
+                <div class="w3-container w3-light-grey w3-padding w3-round w3-card">
+                    <h3 class="w3-monospace">Permanently Stored</h3>
+                    <p class="w3-medium  w3-text-dark-grey w3-left" style="text-align: left;">
+                        "username": "{{ user.username }}"= [<br>
+                        &nbsp;&nbsp;{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Product": "{{ user.email }}",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Quantity": "{{ user.date_joined|date:'Y-m-d' }}",<br>
+                        &nbsp;&nbsp;}<br>
+                        ]<br>
+                    </p>
+                </div>
+                {% else %}
+                    <p class="w3-text-red">You are not logged in.</p>
+                {% endif %}
+                
+                </div>
+            </div>
+            <div class="w3-col w3-half ">
+                <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey ">
+
+                <h3 class="w3-center w3-serif">Data Stored using Sessions <br>[Deletes after set time (say 30sec) ]</h3><hr>
+                {% if user.is_authenticated %}
+                <div class="w3-container w3-light-grey w3-padding w3-round w3-card">
+                    <h3 class="w3-monospace">Temporarily Stored</h3>
+                    <p class="w3-medium  w3-text-dark-grey w3-left" style="text-align: left;">
+                        "username": "{{ user.username }}"= [<br>
+                        &nbsp;&nbsp;{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Product": "{{ user.email }}",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Quantity": "{{ user.date_joined|date:'Y-m-d' }}",<br>
+                        &nbsp;&nbsp;}<br>
+                        ]<br>
+                    </p>
+                </div>
+                {% else %}
+                    <p class="w3-text-red">You are not logged in.</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    
+
+    </div><br>
+
+</body>
+
+
+{% endblock %}
