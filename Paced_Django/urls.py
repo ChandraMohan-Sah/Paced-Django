@@ -20,6 +20,7 @@ urlpatterns = [
     path('app6/', include("app6_pfso.app6_api.urls")),
     path('app7/', include("app7_sessions.app7_api.urls")),
     path('app8/', include("app8_authentication.app8_api.urls")),
+    path('app9/', include("app9_async.app9_api.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

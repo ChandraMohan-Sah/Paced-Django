@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'app6_pfso',
     'app7_sessions',
     'app8_authentication',
+    'app9_async',
 
 ]
 
