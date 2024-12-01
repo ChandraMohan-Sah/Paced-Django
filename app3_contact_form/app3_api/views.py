@@ -10,7 +10,7 @@ EMAIL_HOST_PASSWORD = settings.EMAIL_HOST_PASSWORD
 
 # --------Simple ContactForm : with smtp + nice formatiing--------#
 def contactPOST(request):
-
+ 
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():

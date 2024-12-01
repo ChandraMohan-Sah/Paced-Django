@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 from app8_authentication.forms import CustomPasswordResetForm
 
 #Google Auth
-from .import google_auth
+from .import google_auth_app8
 
 urlpatterns = [
     path("", views.LandingPage, name="landing-page-app8"),
@@ -19,7 +19,7 @@ urlpatterns = [
     path('resend-verification-email/', views.resend_verification_email,  name="resend_verification_email"),
 
     #Google Login
-    path('login/google/', google_auth.google_login, name='google_login'),
+    path('login/google/', google_auth_app8.google_login, name='google_login'),
     # path('complete/google/', google_auth.google_callback, name='google_callback'),
 
 

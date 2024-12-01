@@ -32,125 +32,74 @@
       .hover:hover {
         transform: scale(1.1); /* Zooms the image */
       }
-
 </style>
   
 
 
 <body>
+    {% if user.is_authenticated %}
+    <div class="w3-content w3-panel w3-monospace w3-round-large w3-pink w3-center w3-large" style="width:100%; position: relative;">
+        <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+        <h2 class="w3-serif">Logged In: You can See your data below.</h2>
+    </div>
+    {% endif %}
 
     <div class="w3-content w3-round w3-padding-large w3-text-white w3-border" style="max-width: 1000px; margin-top:60px">
-        <h3 class="w3-center w3-monospace">Let's See the Difference Between Persistent and Temporary Data Storage.</h3>
-
-        <div class="w3-row" >
-            
-            
-                <div class="w3-col w3-quarter ">
-                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
-                        <img src="{% static 'app7_sessions/images/tray.png' %}" class="w3-border w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
-                        
-                            <p class="w3-center w3-panel w3-round-large">
-                                <div class="table-row">
-                                    <span class="box">-</span>
-                                    <span class="box w3-monospace">1</span>
-                                    <span class="box">+</span>
-                                </div>
-                            </p>
-                            <p class="w3-center w3-panel w3-round-large ">
-                                <a href="">
-                                    <div class="table-row">
-                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
-                                    </div>
-                                </a>
-                            </p>
-                    </div>
-                </div>
-            
-
-                <div class="w3-col w3-quarter ">
-                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
-                        <img src="{% static 'app7_sessions/images/trolly.png' %}" class="w3-border w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
-                        
-                            <p class="w3-center w3-panel w3-round-large">
-                                <div class="table-row">
-                                    <span class="box">-</span>
-                                    <span class="box w3-monospace">1</span>
-                                    <span class="box">+</span>
-                                </div>
-                            </p>
-                        
-                            <p class="w3-center w3-panel w3-round-large ">
-                                <a href="">
-                                    <div class="table-row">
-                                        <span class="box  hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
-                                    </div>
-                                </a>
-                            </p>
-                    </div>
-                </div>
-
-
-                <div class="w3-col w3-quarter ">
-                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
-                        <img src="{% static 'app7_sessions/images/wash.png' %}" class="w3-border  w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
-                        
-                            <p class="w3-center w3-panel w3-round-large">
-                                <div class="table-row">
-                                    <span class="box">-</span>
-                                    <span class="box w3-monospace">1</span>
-                                    <span class="box">+</span>
-                                </div>
-                            </p>
-                        
-                            <p class="w3-center w3-panel w3-round-large ">
-                                <a href="">
-                                    <div class="table-row">
-                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
-                                    </div>
-                                </a>
-                            </p>
-                    </div>
-                </div>
-
-                <div class="w3-col w3-quarter ">
-                    <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey "> 
-                        <img src="{% static 'app7_sessions/images/gloves.png' %}" class="w3-border   w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
-                        
-                            <p class="w3-center w3-panel w3-round-large">
-                                <div class="table-row">
-                                    <span class="box">-</span>
-                                    <span class="box w3-monospace">1</span>
-                                    <span class="box">+</span>
-                                </div>
-                            </p>
-                        
-                            <p class="w3-center w3-panel w3-round-large ">
-                                <a href="">
-                                    <div class="table-row">
-                                        <span class="box hover"><i class="fas fa-shopping-cart"></i> Add to Cart</span>
-                                    </div>
-                                </a>
-                            </p>
-                    </div>
-                </div>
-        </div>
-
-        <hr>
-        <h3 class="w3-monospace">Advantages of Session Management</h3>
+        <h3 class="w3-monospace">What is a Session ?</h3>
         <div class="w3-row">
             <ul class="w3-monospace">
-                     <li>User-specific data storage for personalized experiences.</li>
-                    <li>Reduces the need for repeated user inputs.</li>
-                    <li>Supports scalability and multi-user environments.</li>
+                     <li>An "ongoing connection" between a client(browser) and server.</li>
+                    <li>Data stored in a session persists as long as the session is active.</li>
             </ul>
+            <img src="{% static 'app7_sessions/images/session.png' %}" class="w3-border   w3-border-black" style="width:100%; height:auto; border-radius: 8px;" />
         </div><hr>
 
         <div class="w3-row">
+            <h3 class="w3-monospace">Demonstration Clarification</h3>
+            <ul class="w3-monospace">
+                <li>First loggedin user should keep product on their cart. As for now, data is maintained to be stored both on database and session.</li>
+                <li>Now,in one column, data is retrieved from database, while in the other column, data is retrieved from the session.
+                    Data stored in the database <strong>remains persistent</strong> and does not disappear even after the session expires.</li>
+            </ul>
+
+
+
+            <div class="w3-row" >     
+                {% for image in data %}
+                    <div class="w3-col w3-quarter">
+                        <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey">
+                            <img src="{% static image.image_loc %}" class="w3-border w3-border-black" style="width:100%; height:160px; border-radius: 8px;" />
+                            
+                            <!-- Form for each item -->
+                            <form action="{% url "post-data-app7"%}" method="POST" >
+                                {% csrf_token %}
+                                
+                                <div class="table-row">
+                                    <div class="w3-padding">
+                                        <span class="box">-</span>
+                                        <span class="box w3-monospace">1</span>
+                                        <span class="box">+</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="w3-center"><br>
+                                    <button type="submit" class="box hover"><i class="fas fa-shopping-cart"></i></button>
+                                    <span class="box " name="{{ image.product }}">{{ image.product }}</span> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}    
+            </div><hr>
+
+
+        <h3 class="w3-center w3-monospace">Let's See the Difference Between Persistent and Temporary Data Storage.</h3>
 
             <div class="w3-col w3-half ">
+
                 <div class=" w3-margin w3-border w3-round-large w3-padding-small w3-grey ">
 
-                <h3 class="w3-center w3-serif">Data Stored using Database <br>[Persists Permanently]</h3>
+                <h3 class="w3-center w3-serif">Data Retrieved From Database <br>[Persists Permanently]</h3>
                 <hr>
                 {% if user.is_authenticated %}
                 <div class="w3-container w3-light-grey w3-padding w3-round w3-card">
@@ -163,17 +112,33 @@
                         &nbsp;&nbsp;}<br>
                         ]<br>
                     </p>
+                    <div class="w3-center">
+                        <a href="{% url "logout-app7" %}" class="w3-center"> 
+                            <button class="w3-pink w3-round w3-center">
+                                <i class="fab fa-google"></i>  Logout Now
+                            </button>
+                        </a>
+                    </div>
+
                 </div>
-                {% else %}
-                    <p class="w3-text-red">You are not logged in.</p>
+                {% else %} 
+                <div class="w3-center">
+                    <a href="{% url "google_login-app7" %}" class="w3-center">
+                        See Data :
+                        <button class="w3-pink w3-round w3-center">
+                            <i class="fab fa-google"></i> Login with google
+                        </button>
+                    </a>
+                </div>
                 {% endif %}
                 
                 </div>
             </div>
+
             <div class="w3-col w3-half ">
                 <div class="w3-margin w3-border w3-round-large w3-padding-small w3-grey ">
 
-                <h3 class="w3-center w3-serif">Data Stored using Sessions <br>[Deletes after set time (say 30sec) ]</h3><hr>
+                <h3 class="w3-center w3-serif">Data Retrieved From User Session <br>[Deletes after set time (say 30sec) ]</h3><hr>
                 {% if user.is_authenticated %}
                 <div class="w3-container w3-light-grey w3-padding w3-round w3-card">
                     <h3 class="w3-monospace">Temporarily Stored</h3>
@@ -185,18 +150,34 @@
                         &nbsp;&nbsp;}<br>
                         ]<br>
                     </p>
+
+                    <div class="w3-center">
+                        <a href="{% url "logout-app7" %}" class="w3-center"> 
+                            <button class="w3-pink w3-round w3-center">
+                                <i class="fab fa-google"></i>  Logout Now
+                            </button>
+                        </a>
+                    </div>
+
                 </div>
                 {% else %}
-                    <p class="w3-text-red">You are not logged in.</p>
+                    <div class="w3-center">
+                        <a href="{% url "google_login-app7" %}" class="w3-center"> See Data :
+                            <button class="w3-pink w3-round w3-center">
+                                <i class="fab fa-google"></i>  Login with google
+                            </button>
+                        </a>
+                    </div>
                 {% endif %}
                 </div>
             </div>
+
         </div>
-    
-
     </div><br>
-
 </body>
+
+
+
 
 
 {% endblock %}

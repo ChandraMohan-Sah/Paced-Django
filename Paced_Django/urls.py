@@ -4,13 +4,17 @@ from django.urls import path, include
 # Media File Namespace
 from django.conf import settings
 from django.conf.urls.static import static
-from app8_authentication.app8_api import google_auth
+
+from app8_authentication.app8_api import google_auth_app8
+from app7_sessions.app7_api import google_auth_app7
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.api.urls")),
+
     #social urls
-    path('complete/google/', google_auth.google_callback, name='google_callback'),
+    path('complete/google/', google_auth_app7.google_callback, name='google_callback'),
+    path('complete/google/', google_auth_app8.google_callback, name='google_callback'),
 
     path('app1/', include("app1_static_nav.app1_api.urls")),
     path('app2/', include("app2_simple_form.app2_api.urls")),

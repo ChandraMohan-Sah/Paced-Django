@@ -19,7 +19,7 @@ class CreateUploadView(View):
         }
         return render(request, "app4_file_uploads/file_upload.html", context)
 
-
+ 
     def post(self, request):
         image_form = ImageUploadForm(request.POST, request.FILES)
         file_form = FileUploadForm(request.POST, request.FILES)

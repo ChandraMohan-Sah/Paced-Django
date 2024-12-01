@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 # Google OAuth2 Configuration
-CLIENT_ID = settings.CLIENT_ID
+CLIENT_ID = settings.CLIENT_ID 
 CLIENT_SECRET = settings.CLIENT_SECRET
 REDIRECT_URI = settings.REDIRECT_URI
 TOKEN_URL = settings.TOKEN_URL
