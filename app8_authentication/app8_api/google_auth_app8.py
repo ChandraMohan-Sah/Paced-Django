@@ -25,7 +25,7 @@ def google_login(request):
     )
     return redirect(auth_url)
 
-def google_callback(request):
+def google_callback_app8(request):
     # Step 1: Get the authorization code from the URL
     code = request.GET.get("code")
     if not code:

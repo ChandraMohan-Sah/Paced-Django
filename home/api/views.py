@@ -44,9 +44,9 @@ cards = [
         "link": "session-mgmt-app7"
     },
     {
-        "topic": "Capstone 2 [ToDo App]",
+        "topic": "Capstone 2 [Tic-Tac-Toe]",
         "icon": "👨‍🎓",
-        "link": "home"
+        "link": "index-app7-capstone"
     },
     {
         "topic": "Web Sockets: Async Comm",
@@ -78,3 +78,4 @@ def home(request):
     }
     return render(request, "base.html", context )
 
+ 

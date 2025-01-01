@@ -34,10 +34,12 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD #password generated at google manager
 
 # Application definition
 INSTALLED_APPS = [
+    'channels',
+    'daphne', # It should be above to prevent error.
+    'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'app4_file_uploads',
     'app6_pfso',
     'app7_sessions',
+    'app7_game',
     'app8_authentication',
     'app9_async',
 
@@ -89,7 +92,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Paced_Django.wsgi.application'
+# WSGI_APPLICATION = 'Paced_Django.wsgi.application'
+ASGI_APPLICATION = 'Paced_Django.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default":{
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 
 # Database
