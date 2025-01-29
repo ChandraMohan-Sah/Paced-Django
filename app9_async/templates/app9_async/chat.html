@@ -81,7 +81,7 @@
             <!-- Chat Messages -->
             <div id="messages" class="w3-padding w3-border w3-round-large" style="height: 80%; overflow-y: auto; background-color: white;">
               <!-- Bot Message -->
-              <div class="chat-message bot-message">
+              <div class="chat-message bot-message" id="another-user-message">
                 <p>Hello! How can I assist you today?</p>
               </div>
 
@@ -126,6 +126,7 @@
 
   <div class="w3-content w3-half">
     <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: 550px; height: 95vh;">
+      
       {% for user in all_users %}
         <a href="{% url 'chat-with-people-app9' user_id=user.id %}">
           <section>
@@ -155,8 +156,10 @@
 {% endif %}
 
 <script>
+  const person_id = {{ particular_user.id }}
+
   // Connecting to the WebSocket
-  const url = `ws://127.0.0.1:8000/websocket`;
+  const url = `ws://127.0.0.1:8000/websocket/${person_id}/`;
   const chat_websocket = new WebSocket(url);  
 
   const messages_area = document.getElementById("messages")
@@ -170,18 +173,30 @@
 
     text_area.value = "";  // Clear the text area after sending
     messages_area.insertAdjacentHTML("beforeend", `
-        <div class="chat-message user-message" id="user-message">
-          <p>${message}</p>
-        </div>
+      <div class="chat-message user-message" id="user-message">
+        ${message}
+      </div>
     `)
   });
 
   // Printing the message through the WebSocket
   chat_websocket.onmessage = function(event){
-    console.log(event.data);
+    //console.log(event.data);
+
+    const received_data = JSON.parse(event.data)
+
+    if (received_data.type_of_data == "new_message"){
+
+      messages_area.insertAdjacentHTML("beforeend", `
+        <div class="chat-message bot-message" id="another-user-message">
+          <p>${received_data.data}</p>
+        </div>
+    `)
+    }
+
+
   };
 </script>
-
 
 
 {% endblock %}

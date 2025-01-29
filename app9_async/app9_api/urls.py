@@ -12,3 +12,4 @@ urlpatterns = [
     path('login-app9/google/', google_auth_app9.APP9_google_login, name='google_login-app9'),
     path('logout-app9/pass/', views.custom_logout_view, name='logout-app9' ),
 ]
+

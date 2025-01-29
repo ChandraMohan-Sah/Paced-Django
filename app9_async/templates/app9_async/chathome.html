@@ -46,6 +46,18 @@
   </div>
   <div class="w3-content w3-half">
     <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: 550px; height: 95vh;">
+      <div>
+        <strong>Logged In as : {{myself}} </strong><br>
+        <div >
+          <a href="{% url "logout-app9" %}" class="w3-center"> 
+            <button class="w3-pink w3-round w3-button w3-center">
+                <i class="fab fa-google"></i>  Logout
+            </button>
+          </a>
+        </div>
+        <br>
+      </div>
+      <strong>Chat with Friends</strong>
       {% for user in users %}
         <a href="{% url 'chat-with-people-app9' user_id=user.id %}">
           <section>
@@ -98,7 +110,7 @@
 
   // Printing the message through the WebSocket
   chat_websocket.onmessage = function(event){
-    console.log(event.data);
+    console.log(event.data);    
   };
 </script>
 
