@@ -6,36 +6,9 @@
 
 <link rel="stylesheet" href="{% static 'app9_async/css/styles.css' %}">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<style>
-  /* Custom Chat Message Styles */
-  .chat-message {
-    display: block; /* Ensure messages are stacked vertically */
-    padding: 8px 12px; /* Inner spacing */
-    margin: 6px 0; /* Space between messages */
-    border-radius: 12px; /* Rounded corners */
-    max-width: 80%; /* Prevents messages from becoming too wide */
-    word-wrap: break-word; /* Wraps long words */
-    word-break: break-word; /* Handles words that don’t break naturally */
-    box-sizing: border-box; /* Ensures padding is inside the width */
-  }
 
-  .bot-message {
-    background-color: #e7f3fe; /* Light blue for bot messages */
-    border-left: 4px solid #2196F3; /* Blue left border */
-    text-align: left; /* Align text to the left for bot messages */
-    margin-left: 10px; /* Spacing on the left side */
-    width: auto; /* Ensure the width adjusts based on content */
-  }
-
-  .user-message {
-    background-color: #f1f1f1; /* Light gray for user messages */
-    text-align: right; /* Right-align user messages */
-    margin-left: auto; /* Push to the right side */
-    margin-right: 10px; /* Spacing on the right side */
-    width: auto; /* Ensure the width adjusts based on content */
-  }
-</style>
 
 
 {% if user.is_authenticated %}
@@ -45,7 +18,7 @@
       
   </div>
   <div class="w3-content w3-half">
-    <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: 550px; height: 95vh;">
+    <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: auto; height: 95vh;">
       <div>
         <strong>Logged In as : {{myself}} </strong><br>
         <div >
@@ -58,13 +31,14 @@
         <br>
       </div>
       <strong>Chat with Friends</strong>
-      {% for user in users %}
-        <a href="{% url 'chat-with-people-app9' user_id=user.id %}">
-          <section>
-          <p>{{user}}</p>
-          </section>
-        </a>
-      {% endfor %}
+      <div class=" w3-container w3-card w3-round-xlarge w3-padding">
+        {% for user in users %}
+          <a href="{% url 'chat-with-people-app9' user_id=user.id %}" class="w3-block w3-button w3-white w3-round-large w3-panel w3-hover-shadow w3-padding w3-margin-bottom" style="text-align: left;">
+            <i class="fa fa-user-circle w3-text-blue" style="font-size: 24px;"></i>
+            <span class="w3-margin-left">{{ user }}</span>
+          </a>
+        {% endfor %}
+      </div>
     </div>
     
   </div>
@@ -85,34 +59,6 @@
     </a>
   </div>
 {% endif %}
-
-<script>
-  // Connecting to the WebSocket
-  const url = `ws://127.0.0.1:8000/websocket`;
-  const chat_websocket = new WebSocket(url);  
-
-  const messages_area = document.getElementById("messages")
-  const text_area = document.getElementById("the-message-to-send");
-  const send_button = document.getElementById("send-message-button");
-
-  send_button.addEventListener("click", function(){
-    // Sending message through the connection
-    const message = text_area.value;  // Get the message value
-    chat_websocket.send(`{"type":"new_message", "message":"${message}"}`);  // Correctly using template literals
-
-    text_area.value = "";  // Clear the text area after sending
-    messages_area.insertAdjacentHTML("beforeend", `
-        <div class="chat-message user-message" id="user-message">
-          <p>${message}</p>
-        </div>
-    `)
-  });
-
-  // Printing the message through the WebSocket
-  chat_websocket.onmessage = function(event){
-    console.log(event.data);    
-  };
-</script>
 
 
 

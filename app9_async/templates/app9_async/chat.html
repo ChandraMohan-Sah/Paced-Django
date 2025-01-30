@@ -11,10 +11,9 @@
   /* Custom Chat Message Styles */
   .chat-message {
     display: block; /* Ensure messages are stacked vertically */
-    padding: 8px 12px; /* Inner spacing */
-    margin: 6px 0; /* Space between messages */
-    border-radius: 12px; /* Rounded corners */
-    max-width: 80%; /* Prevents messages from becoming too wide */
+    margin: 1px 0; /* Space between messages */
+    border-radius: 6px; /* Rounded corners */
+    max-width: 55%; /* Prevents messages from becoming too wide */
     word-wrap: break-word; /* Wraps long words */
     word-break: break-word; /* Handles words that don’t break naturally */
     box-sizing: border-box; /* Ensures padding is inside the width */
@@ -41,90 +40,93 @@
 {% if user.is_authenticated %}
 <div class="w3-container">
   <div class="w3-row">
-  <div class="w3-content w3-half">
-      <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: 550px; height: 95vh;">
-        <!-- Left Column (Chat Window) -->
-        <div class="w3-col w3-card w3-round-large w3-light-grey" style="width: 100%; height: 100%;">
-          <div class="w3-container" style="height: 100%;">
-                        
-            <!-- Chat Header -->
+    <div class="w3-content w3-half">
+        <div class="w3-row w3-padding-top-64 w3-margin-top" style=" height: 95vh;">
+          <!-- Left Column (Chat Window) -->
+          <div class="w3-col w3-card w3-round-large w3-light-grey" style=" height: 76%;">
+            <div class="w3-container" style="height: 93%;">
+                          
+              <!-- Chat Header -->
+              <div class="w3-padding ">
+                <div class="w3-row">
+                  <div class="w3-col s2" style="margin-right:5px;">
+                    <img src="https://images.unsplash.com/photo-1733513458601-281b27dc5edc?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User Avatar" class="w3-circle" style="width:55px;height:55px;border-radius:50%;">
+                  </div>
 
-            <div class="w3-padding ">
-              <div class="w3-row">
-                <div class="w3-col s2">
-                  <img src="https://images.unsplash.com/photo-1733513458601-281b27dc5edc?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User Avatar" class="w3-circle" style="width:55px;height:55px;border-radius:50%;">
-                </div>
+                  <div class="w3-col s4">
+                    <span class="w3-large">{{particular_user}}</span><br>
+                    <span class="w3-small w3-text-green">Active 24m ago</span>
+                  </div>
 
-                <div class="w3-col s6">
-                  <span class="w3-large">{{particular_user}}</span><br>
-                  <span class="w3-small w3-text-green">Active 24m ago</span>
-                </div>
-
-                <div class="w3-col s4 w3-right" style="text-align: right;">
-                  <!-- Video Call Icon -->
-                  <button class="w3-button w3-text-blue" title="Video Call">
-                    <i class="fa fa-video-camera"></i>
-                  </button>
-                  <!-- Audio Call Icon -->
-                  <button class="w3-button w3-text-green" title="Audio Call">
-                    <i class="fa fa-phone"></i>
-                  </button>
-                  <!-- Info Icon -->
-                  <button class="w3-button" title="Info">
-                    <i class="fa fa-info-circle"></i>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Chat Messages -->
-            <div id="messages" class="w3-padding w3-border w3-round-large" style="height: 80%; overflow-y: auto; background-color: white;">
-              <!-- Bot Message -->
-              <div class="chat-message bot-message" id="another-user-message">
-                <p>Hello! How can I assist you today?</p>
-              </div>
-
-              <!-- User Message -->
-              <div class="chat-message user-message" id="user-message">
-                <p>Can you tell me about W3.CSS?</p>
-              </div>
-              
-            </div>
-
-            <!-- Chat Input -->
-            <div class="w3-padding">
-              <div class="w3-row">
-                <!-- Input Area -->
-                <div class="w3-col s8">
-                  <input type="text" placeholder="Type a message..." class="w3-input w3-border w3-round" id="the-message-to-send">
-                </div>
-
-                <!-- Send Message Button -->
-                <div class="w3-col s2">
-                  <button class="w3-button w3-blue w3-round" id="send-message-button">Send</button>
-                </div>
-
-                <!-- Logout Button -->
-                <div class="w3-col s2">
-                  <a href="{% url "logout-app9" %}" class="w3-center"> 
-                    <button class="w3-pink w3-round w3-button w3-center">
-                        <i class="fab fa-google"></i>  Logout
+                  <div class="w3-col s4 w3-right" style="text-align: right;">
+                    <!-- Video Call Icon -->
+                    <button class="w3-button w3-text-blue" title="Video Call">
+                      <i class="fa fa-video-camera"></i>
                     </button>
-                  </a>
-                </div>
-                
-              </div>
-              
-            </div>
+                    <!-- Audio Call Icon -->
+                    <button class="w3-button w3-text-green" title="Audio Call">
+                      <i class="fa fa-phone"></i>
+                    </button>
+                    <!-- Info Icon -->
+                    <button class="w3-button" title="Info">
+                      <i class="fa fa-info-circle"></i>
+                    </button>
+                  </div>
 
+                </div>
+              </div>
+
+              <!-- Chat Messages -->
+              <div id="messages" class="w3-padding w3-border w3-round-large" style="height: 80%; overflow-y: auto; background-color: white;">
+                {% for message in messages %}
+                  {% if message.from_who == me%}
+                    <!-- Bot Message -->
+                    <div class="chat-message user-message w3-padding-small" id="another-user-message" >
+                      <p>{{message.message}}</p>
+                    </div>
+                    <p class="w3-tiny w3-right-align w3-text-blue-grey" style="margin-right:60px;">{{message.date}}, {{message.time}} </p>
+
+                  {% elif message.from_who == particular_user%}              
+                    <!-- User Message -->
+                    <div class="chat-message bot-message w3-padding-small" id="user-message" >
+                      <p>{{message.message}}</p>
+                    </div>
+                    <p class="w3-tiny w3-left-align w3-text-blue-grey" style="margin-left:60px;">{{message.date}}, {{message.time}}</p>
+                  {% endif %}
+                {% endfor %}   
+              </div>
+
+
+              <!-- Chat Input -->
+              <div class="w3-padding">
+                <div class="w3-row">
+                  <div class="w3-col s8">
+                    <input type="text" placeholder="Type a message..." class="w3-border w3-round" style="padding:6px;" id="the-message-to-send">
+                  </div>
+
+                  <!-- Send Message Button -->
+                  <div class="w3-col s2" style="margin-left:14px;">
+                    <button class="w3-blue w3-round" id="send-message-button">Send</button>
+                  </div>
+
+                  <!-- Logout Button -->
+                  <div class="w3-col s1">
+                    <a href="{% url "logout-app9" %}" class="w3-center"> 
+                      <button class="w3-pink w3-round">
+                          Logout
+                      </button>
+                    </a>
+                  </div> 
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-  
   </div>
 
-  <div class="w3-content w3-half">
+  <div class="w3-content w3-half w3-padding-16">
     <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: 550px; height: 95vh;">
       
       {% for user in all_users %}
@@ -166,18 +168,35 @@
   const text_area = document.getElementById("the-message-to-send");
   const send_button = document.getElementById("send-message-button");
 
-  send_button.addEventListener("click", function(){
-    // Sending message through the connection
-    const message = text_area.value;  // Get the message value
-    chat_websocket.send(`{"type":"new_message", "message":"${message}"}`);  // Correctly using template literals
+  send_button.addEventListener("click", function() {
+    // Getting the current date and time
+    const now = new Date();
+    const formattedDate = now.toISOString().split('T')[0]; // Extracts YYYY-MM-DD
+    const formattedTime = now.toTimeString().split(' ')[0]; // Extracts HH:MM:SS
 
-    text_area.value = "";  // Clear the text area after sending
+    // Getting the message value
+    const message = text_area.value;
+
+    // Sending message through the connection with date and time
+    chat_websocket.send(`{
+        "type": "new_message",
+        "message": "${message}",
+        "date": "${formattedDate}",
+        "time": "${formattedTime}"
+    }`);
+
+    // Clear the text area after sending
+    text_area.value = "";
+
+    // Append the message with date and time
     messages_area.insertAdjacentHTML("beforeend", `
       <div class="chat-message user-message" id="user-message">
+        <span class="w3-tiny">${formattedDate} ${formattedTime}</span><br>
         ${message}
       </div>
-    `)
-  });
+    `);
+});
+
 
   // Printing the message through the WebSocket
   chat_websocket.onmessage = function(event){
@@ -189,13 +208,30 @@
 
       messages_area.insertAdjacentHTML("beforeend", `
         <div class="chat-message bot-message" id="another-user-message">
+          <span class="w3-tiny">${received_data.time}, ${received_data.date}</span>
           <p>${received_data.data}</p>
         </div>
     `)
     }
-
-
   };
+</script>
+
+<script>
+  function scrollToBottom() {
+      var messagesDiv = document.getElementById("messages");
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  // Scroll to bottom when the page loads
+  window.onload = function() {
+      scrollToBottom();
+  };
+
+  // Scroll to bottom when a new message is added
+  document.getElementById("send-message-button").addEventListener("click", function() {
+      setTimeout(scrollToBottom, 100);  // Delay ensures the message is rendered before scrolling
+  });
+
 </script>
 
 
