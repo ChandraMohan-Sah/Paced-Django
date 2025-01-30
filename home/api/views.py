@@ -63,14 +63,10 @@ cards = [
         "icon": "👨‍🎓",
         "link": "home"
     },
-<<<<<<< HEAD
-        {
-=======
     {
->>>>>>> b612560f9da92ccab7049307816ae5118d4bcd52
-    "topic": "Model Deployment",
-    "icon": "🚀",
-    "link": "home"
+        "topic": "Model Deployment",
+        "icon": "🚀",
+        "link": "home"
     }
 ]
 
