@@ -11,7 +11,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') #password generated at google manager
 
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOST', default='').split(',')
-DEBUG=config('DJANGO_DEBUG')
+DEBUG=False
 
 
 CLIENT_ID = config("CLIENT_ID")
@@ -19,7 +19,7 @@ CLIENT_SECRET = config("CLIENT_SECRET")
 REDIRECT_URI = config("REDIRECT_URI")
 TOKEN_URL = config("TOKEN_URL")
 USER_INFO_URL = config("USER_INFO_URL")
- 
+
 
 #smtp server setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -146,7 +146,7 @@ BASE_DIR / "static"
 
 
 #MEDIA file Location
-MEDIA_ROOT = BASE_DIR / "media_uploads" 
+MEDIA_ROOT = BASE_DIR / "media_uploads"
 #Now all other media path will be subfolder of uploads
 
 MEDIA_URL = "/demo-uploads/"
