@@ -8,3 +8,4 @@ urlpatterns = [
     path("thank-you-page-app4/", views.ThankYou, name="thank-you-app4")
 
 ]
+ 

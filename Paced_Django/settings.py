@@ -34,10 +34,12 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD #password generated at google manager
 
 # Application definition
 INSTALLED_APPS = [
+    'channels',
+    'daphne', # It should be above to prevent error.
+    'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
@@ -48,7 +50,9 @@ INSTALLED_APPS = [
     'app4_file_uploads',
     'app6_pfso',
     'app7_sessions',
+    'app7_game',
     'app8_authentication',
+    'app9_async',
 
 ]
 
@@ -88,7 +92,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Paced_Django.wsgi.application'
+# WSGI_APPLICATION = 'Paced_Django.wsgi.application'
+ASGI_APPLICATION = 'Paced_Django.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default":{
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 
 # Database
@@ -170,8 +181,8 @@ LOGIN_URL = "login-app8/"
 #https://accounts.google.com/o/oauth2/auth?client_id=98948128488-lhv9kup2b4oqekb13furatbinfn5m0r0.apps.googleusercontent.com&response_type=code&redirect_uri=http://127.0.0.1:8000/complete/google/&scope=openid%20email%20profile
 
 
+ 
 
-
-#Heroku Settings
-import django_heroku
-django_heroku.settings(locals())
+# #Heroku Settings
+# import django_heroku
+# django_heroku.settings(locals())

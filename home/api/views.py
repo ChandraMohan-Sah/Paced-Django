@@ -41,17 +41,17 @@ cards = [
     {
         "topic": "Session Management",
         "icon": "⏳",
-        "link": "home"
+        "link": "session-mgmt-app7"
     },
     {
-        "topic": "Capstone 2 [ToDo App]",
+        "topic": "Capstone 2 [Tic-Tac-Toe]",
         "icon": "👨‍🎓",
-        "link": "home"
+        "link": "index-app7-capstone"
     },
     {
         "topic": "Web Sockets: Async Comm",
         "icon": "📡",
-        "link": "home"
+        "link": "async-app9"
     },
     {
         "topic": "Payment Gateway",
@@ -63,7 +63,11 @@ cards = [
         "icon": "👨‍🎓",
         "link": "home"
     },
+<<<<<<< HEAD
         {
+=======
+    {
+>>>>>>> b612560f9da92ccab7049307816ae5118d4bcd52
     "topic": "Model Deployment",
     "icon": "🚀",
     "link": "home"
@@ -78,3 +82,4 @@ def home(request):
     }
     return render(request, "base.html", context )
 
+ 

@@ -1,0 +1,66 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'app9_async/css/styles.css' %}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+{% if user.is_authenticated %}
+<div class="w3-container">
+  <div class="w3-row">
+  <div class="w3-content w3-half">
+      
+  </div>
+  <div class="w3-content w3-half">
+    <div class="w3-row w3-padding-top-64 w3-margin-top" style="width: auto; height: 95vh;">
+      <div>
+        <strong>Logged In as : {{myself}} </strong><br>
+        <div >
+          <a href="{% url "logout-app9" %}" class="w3-center"> 
+            <button class="w3-pink w3-round w3-button w3-center">
+                <i class="fab fa-google"></i>  Logout
+            </button>
+          </a>
+        </div>
+        <br>
+      </div>
+      <strong>Chat with Friends</strong>
+      <div class=" w3-container w3-card w3-round-xlarge w3-padding">
+        {% for user in users %}
+          <a href="{% url 'chat-with-people-app9' user_id=user.id %}" class="w3-block w3-button w3-white w3-round-large w3-panel w3-hover-shadow w3-padding w3-margin-bottom" style="text-align: left;">
+            <i class="fa fa-user-circle w3-text-blue" style="font-size: 24px;"></i>
+            <span class="w3-margin-left">{{ user }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+
+{% else %}
+  <div class="w3-content w3-panel w3-monospace w3-round-large w3-white w3-center w3-large" style="width:100%; position: relative;margin-top:80px;">
+    <button class="close-btn" onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 10px; background: none; border: none; font-size: 20px; font-weight: bold; cursor: pointer;">&times;</button>
+    <h3 class="w3-serif">You are currently logged out: Please <strong>Login</strong> for Demonstration.</h3>
+  </div>
+  <div class="w3-center" >
+    <a href="{% url "google_login-app9" %}" class="w3-center">
+        <button class="w3-green w3-round w3-center">
+            <i class="fab fa-google"></i> Login with google
+        </button>
+    </a>
+  </div>
+{% endif %}
+
+
+
+{% endblock %}
+

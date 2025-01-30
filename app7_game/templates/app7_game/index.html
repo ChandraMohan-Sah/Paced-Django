@@ -1,0 +1,90 @@
+{% extends 'base2.html' %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic-Tac-Toe</title>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px); /* 3 columns of 100px width */
+            grid-template-rows: repeat(3, 100px);   /* 3 rows of 100px height */
+            gap: 10px; /* Space between items */
+        }
+        
+        
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 36px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid black;
+        }
+        
+        a {
+            display: block;
+            text-decoration: none;
+        }
+        
+        .filled {
+            pointer-events: none;
+            background-color: #ddd;
+        }
+        
+        body {
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div class="w3-content  w3-round w3-padding-large w3-serif w3-border w3-border-black" style="max-width: 1000px;margin-top:70px;">
+
+        <div class="">
+            <div class="w3-panel w3-round-large w3-gray w3-border">
+                <h1 class=" w3-center w3-monospace">Tic-Tac-Toe</h1>
+            </div>
+
+            {% if winner %}
+                <h4  class=" w3-center w3-text-green  w3-monospace" >Player {{ winner }} Wins!</h4>
+                <a href="{% url 'reset_game' %}">
+                    <div class="w3-center">
+                        <button class="w3-text-green w3-margin-left">Play Again</button>
+                    </div>
+                </a> <br><hr>
+            {% else %}
+                <h2 class=" w3-center w3-text-yellow  w3-monospace">Current Player: 
+                    <span class="w3-serif w3-text-deep-orange">{{ current_player }}</span>
+                </h2>
+            {% endif %}<br>
+        </div>
+
+        <div class="board ">
+            {% for cell in board %}
+                {% if not cell and not winner %}
+                    <a href="{% url 'make_move' forloop.counter0 %}" style="text-decoration: none;">
+                        <div class="cell"></div>
+                    </a>
+                {% else %}
+                    <div class="cell filled">{{ cell }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <br>
+        <a href="{% url 'reset_game' %}">
+            <button class="w3-text-red">Reset Game</button>
+        </a>
+    </div>
+
+
+</body>
+</html>
+
+{% endblock %}
