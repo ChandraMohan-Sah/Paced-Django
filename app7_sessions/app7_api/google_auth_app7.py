@@ -9,11 +9,11 @@ from django.conf import settings
 # Google OAuth2 Configuration
 CLIENT_ID = "98948128488-lhv9kup2b4oqekb13furatbinfn5m0r0.apps.googleusercontent.com"
 CLIENT_SECRET = "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"
-REDIRECT_URI = "http://127.0.0.1:8000/complete/google/"
+REDIRECT_URI = "https://collegeproject.pythonanywhere.com/complete/google/app7/"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo"
- 
- 
+
+
 
 def google_login(request):
     # Google OAuth2 authorization URL
@@ -80,7 +80,7 @@ def google_callback_app7(request):
 
     # Step 5: Log the user in manually, specifying the backend
     login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-    
+
     # Redirect to a home page or dashboard
     return redirect("session-mgmt-app7")  # Redirect to any page you want the user to go after logging in
 

@@ -156,6 +156,10 @@ BASE_DIR / "static"
 ]
 
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+
 #MEDIA file Location
 MEDIA_ROOT = BASE_DIR / "media_uploads"
 #Now all other media path will be subfolder of uploads
@@ -181,7 +185,7 @@ LOGIN_URL = "login-app8/"
 #https://accounts.google.com/o/oauth2/auth?client_id=98948128488-lhv9kup2b4oqekb13furatbinfn5m0r0.apps.googleusercontent.com&response_type=code&redirect_uri=http://127.0.0.1:8000/complete/google/&scope=openid%20email%20profile
 
 
- 
+
 
 # #Heroku Settings
 # import django_heroku

@@ -9,11 +9,11 @@ from django.conf import settings
 # Google OAuth2 Configuration
 CLIENT_ID = "98948128488-lhv9kup2b4oqekb13furatbinfn5m0r0.apps.googleusercontent.com"
 CLIENT_SECRET = "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"
-REDIRECT_URI = "http://127.0.0.1:8000/complete/google/app9/"
+REDIRECT_URI = "https://collegeproject.pythonanywhere.com/complete/google/app9/"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo"
- 
- 
+
+
 
 def APP9_google_login(request):
     # Google OAuth2 authorization URL

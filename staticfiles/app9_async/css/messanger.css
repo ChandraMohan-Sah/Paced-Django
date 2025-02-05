@@ -1,0 +1,79 @@
+/* Messenger Icon Styling */
+.messenger-icon {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0084ff;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Chat Box Styling */
+.chat-box {
+    display: none; /* Hidden initially */
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 300px; /* Increased height */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+.chat-header {
+    background-color: #0084ff;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.chat-content {
+    padding: 15px;
+    height: 180px; /* Adjusted for new height */
+    overflow-y: auto;
+    color: #333; /* Text color for better visibility */
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chat-input button {
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #006bbd; /* Hover effect */
+}

@@ -14,9 +14,10 @@ urlpatterns = [
     path('', include("home.api.urls")),
 
     #social urls
-    path('complete/google/app9/', google_auth_app9.google_callback_app9, name='google_callback'),
-    path('complete/google/', google_auth_app7.google_callback_app7, name='google_callback'),
     path('complete/google/', google_auth_app8.google_callback_app8, name='google_callback'),
+    path('complete/google/app7/', google_auth_app7.google_callback_app7, name='google_callback'),
+    path('complete/google/app9/', google_auth_app9.google_callback_app9, name='google_callback'),
+
 
 
     path('app1/', include("app1_static_nav.app1_api.urls")),
@@ -34,3 +35,6 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
+# path('complete/google/app7/', google_auth_app7.google_callback_app7, name='google_callback_app7'),
+# path('complete/google/app8/', google_auth_app8.google_callback_app8, name='google_callback_app8'),
+# path('complete/google/app9/', google_auth_app9.google_callback_app9, name='google_callback_app9'),
