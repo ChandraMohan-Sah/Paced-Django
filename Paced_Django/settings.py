@@ -11,7 +11,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') #password generated at google manager
 
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOST', default='').split(',')
-DEBUG=False
+DEBUG=True
 
 
 CLIENT_ID = config("CLIENT_ID")
