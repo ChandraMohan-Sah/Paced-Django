@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'app7_game',
     'app8_authentication',
     'app9_async',
+    'app10_video_conferencing'
 
 ]
 

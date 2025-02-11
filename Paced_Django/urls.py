@@ -30,6 +30,7 @@ urlpatterns = [
     path('app7_game/', include("app7_game.app7_game_api.urls")),
     path('app8/', include("app8_authentication.app8_api.urls")),
     path('app9/', include("app9_async.app9_api.urls")),
+    path('app10/', include("app10_video_conferencing.api.urls"))
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
