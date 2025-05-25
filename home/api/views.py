@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -29,9 +29,9 @@ cards = [
         "link": "landing-page-app6"
     },
     {
-        "topic": "Capstone 1 [Simple Blog]",
+        "topic": "Capstone 1 [Portfolio]",
         "icon": "👨‍🎓",
-        "link": "home"
+        "link": "portfolio"
     },
     {
         "topic": "Authentication [2-types]",
@@ -79,3 +79,7 @@ def home(request):
     return render(request, "base.html", context )
 
  
+
+def capstone1(request):
+    # portfolio site 
+    return redirect("https://chandramohan.pythonanywhere.com/")
