@@ -7,7 +7,7 @@ Avoiding sensitive data to be pushed in github
 -----------------------------
 SECRET_KEY=your-secret-key
 DATABASE_PASSWORD=your-database-password
-
+ 
 
 3. in settings.py 
 ------------------------------

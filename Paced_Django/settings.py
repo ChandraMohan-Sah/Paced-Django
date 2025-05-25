@@ -93,6 +93,7 @@ TEMPLATES = [
     },
 ]
 
+
 # WSGI_APPLICATION = 'Paced_Django.wsgi.application'
 ASGI_APPLICATION = 'Paced_Django.asgi.application'
 

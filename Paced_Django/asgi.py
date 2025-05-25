@@ -12,8 +12,8 @@ from app9_async.app9_api import routing
 
 '''adding user and session in asgi application'''
 # from channels.sessions import SessionMiddlewareStack  #only Session Acceptance
-# from channels.auth import AuthMiddleware      #only User Acceptance
-from channels.auth import AuthMiddlewareStack   #both user and session
+# from channels.auth import AuthMiddleware              #only User Acceptance
+from channels.auth import AuthMiddlewareStack           #both user and session
 
 
 # Wrap the WebSocket connection in both session and auth middleware

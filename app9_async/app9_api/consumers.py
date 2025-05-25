@@ -67,8 +67,6 @@ class ChatConsumer(WebsocketConsumer):
             except:
                 print("Error")
 
-
-
     def receiver_function(self, the_data_that_wil_come_from_the_layer):
         # print(the_data_that_wil_come_from_the_layer)
         data = json.dumps(the_data_that_wil_come_from_the_layer)
