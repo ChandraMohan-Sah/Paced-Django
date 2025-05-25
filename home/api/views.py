@@ -49,22 +49,17 @@ cards = [
         "link": "mcq-helper"
     },
     {
-        "topic": "Web Sockets: Async Comm",
-        "icon": "📡",
-        "link": "home"
-    },
-    {
         "topic": "Payment Gateway",
         "icon": "➡️",
         "link": "home"
     },
     {
-        "topic": "Capstone 3 : IMDB Clone ",
-        "icon": "👨‍🎓",
+        "topic": "DRF : IMDB Clone ",
+        "icon": "🔗",
         "link": "home"
     },
     {
-        "topic": "Model Deployment",
+        "topic": "ML Model Integration",
         "icon": "🚀",
         "link": "home"
     }
