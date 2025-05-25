@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'app6_pfso',
     'app7_game',
     'app8_authentication',
+    'app9_ml_integration'
 
 ]
 

@@ -61,7 +61,7 @@ cards = [
     {
         "topic": "ML Model Integration",
         "icon": "🚀",
-        "link": "home"
+        "link": "ml-integration"
     }
 ]
 

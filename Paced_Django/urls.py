@@ -4,7 +4,6 @@ from django.urls import path, include
 # Media File Namespace
 from django.conf import settings
 from django.conf.urls.static import static
-
 from app8_authentication.app8_api import google_auth_app8
 
 urlpatterns = [
@@ -24,7 +23,7 @@ urlpatterns = [
     path('app6/', include("app6_pfso.app6_api.urls")),
     path('app7_game/', include("app7_game.app7_game_api.urls")),
     path('app8/', include("app8_authentication.app8_api.urls")),
-
+    path('app9/', include("app9_ml_integration.app9_api.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
