@@ -6,8 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from app8_authentication.app8_api import google_auth_app8
-from app7_sessions.app7_api import google_auth_app7
-from app9_async.app9_api import google_auth_app9
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,8 +13,6 @@ urlpatterns = [
 
     #social urls
     path('complete/google/', google_auth_app8.google_callback_app8, name='google_callback'),
-    path('complete/google/app7/', google_auth_app7.google_callback_app7, name='google_callback'),
-    path('complete/google/app9/', google_auth_app9.google_callback_app9, name='google_callback'),
 
 
 
@@ -26,11 +22,8 @@ urlpatterns = [
     path('app4/', include("app4_file_uploads.app4_api.urls")),
     path('app5/', include("app5_crud_operation.app5_api.urls")),
     path('app6/', include("app6_pfso.app6_api.urls")),
-    path('app7/', include("app7_sessions.app7_api.urls")),
     path('app7_game/', include("app7_game.app7_game_api.urls")),
     path('app8/', include("app8_authentication.app8_api.urls")),
-    path('app9/', include("app9_async.app9_api.urls")),
-    path('app10/', include("app10_video_conferencing.api.urls"))
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

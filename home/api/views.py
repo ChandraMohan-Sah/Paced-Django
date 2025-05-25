@@ -9,7 +9,7 @@ cards = [
         "link": "monthlist"
     },
     {
-        "topic": "Simple Form [3-types]",
+        "topic": "Simple Form Submission",
         "icon": "📝",
         "link": "simple-form"
     },
@@ -29,7 +29,7 @@ cards = [
         "link": "landing-page-app6"
     },
     {
-        "topic": "Capstone 1 [Portfolio]",
+        "topic": "Capstone 1 : Portfolio ",
         "icon": "👨‍🎓",
         "link": "portfolio"
     },
@@ -41,17 +41,17 @@ cards = [
     {
         "topic": "Session Management",
         "icon": "⏳",
-        "link": "session-mgmt-app7"
+        "link": "index-app7-capstone"
     },
     {
-        "topic": "Capstone 2 [Tic-Tac-Toe]",
+        "topic": "Capstone 2 : PSC MCQ Helper",
         "icon": "👨‍🎓",
-        "link": "index-app7-capstone"
+        "link": "mcq-helper"
     },
     {
         "topic": "Web Sockets: Async Comm",
         "icon": "📡",
-        "link": "async-app9"
+        "link": "home"
     },
     {
         "topic": "Payment Gateway",
@@ -59,7 +59,7 @@ cards = [
         "link": "home"
     },
     {
-        "topic": "Capstone 3 [E-Commerce]",
+        "topic": "Capstone 3 : IMDB Clone ",
         "icon": "👨‍🎓",
         "link": "home"
     },
@@ -83,3 +83,8 @@ def home(request):
 def capstone1(request):
     # portfolio site 
     return redirect("https://chandramohan.pythonanywhere.com/")
+
+
+def capstone2(request):
+    # portfolio site 
+    return redirect("https://gkhelper.pythonanywhere.com/")
