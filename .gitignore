@@ -1,7 +1,7 @@
 venv/
 .env
 
-
+db.sqlite3
 
 #All that developer ignores
 # Byte-compiled / optimized / DLL files
