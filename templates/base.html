@@ -31,13 +31,31 @@
         font-family: 'Courier New', Courier, monospace;
     }
 
+    button {
+        background-color: teal;
+        color: white;
+        padding: 3px 7px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom:5px;
+    }
+    
+    button:hover {
+        background-color: darkcyan;
+    }
+    
 </style>
 
 <body>
     <div class="w3-content">
         <div class="w3-panel w3-border w3-center   w3-round-large key w3-large" style="margin-top:20px">
             <p>Each belows card Represents a 
-                <label class="w3-text-green"><strong>[Comprehensive Django Learnings]<strong><label></p>
+                <label class="w3-text-green"><strong>[Comprehensive Django Learnings]<strong><label>
+                <br><button class="w3-small"  onclick="location.href='{% url 'hierarchy' %}'" >Check Code Hierarchy Best Practices </button >
+            </p>
+            
         </div>
     </div>
 

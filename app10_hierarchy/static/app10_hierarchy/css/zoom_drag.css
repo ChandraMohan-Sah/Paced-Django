@@ -1,0 +1,79 @@
+.image-box {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.zoom-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    cursor: grab;
+    position: relative;
+}
+
+#hierarchy-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+    transform-origin: 0 0;
+    display: block;
+}
+
+.fullscreen-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4a90e2, #357abd); /* Gradient background */
+    color: white;
+    padding: 10px;
+    border-radius: 12px; /* Softer, modern corners */
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 40px;
+    height: 40px;
+}
+
+.fullscreen-icon:hover {
+    background: linear-gradient(135deg, #63b3ed, #4a90e2); /* Lighter gradient on hover */
+    transform: scale(1.1); /* Slight scale-up effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.fullscreen-icon:active {
+    transform: scale(0.95); /* Slight press effect */
+}
+
+.fullscreen-icon::before {
+    content: '\2750'; /* Unicode for a modern fullscreen icon (arrows outward) */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .image-box {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .fullscreen-icon {
+        font-size: 16px;
+        padding: 8px;
+        width: 32px;
+        height: 32px;
+    }
+}
