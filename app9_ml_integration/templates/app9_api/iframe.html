@@ -3,44 +3,21 @@
 {% block content %}
 
 <!-- W3.CSS CDN -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'app9_ml_integration/css/iframe.css' %}">
 
-<style>
-  html, body {
-    overflow-y: hidden;
-    margin: 0;
-    padding: 0;
-  }
-
-
-
-  .video-container {
-    width: 100%;
-    max-width: 1400px;
-    height: 900px;
-    margin: auto;
-  }
-
-  .video-container iframe {
-    width: 90%;
-    height: 50%;
-  }
-</style>
-
-<div class="w3-container w3-center w3-padding-32">
+<div class="w3-container w3-center responsive-text w3-padding-32  w3-margin-top w3-margin-bottom">
 
   <div class="w3-padding w3-light-grey w3-round-large w3-margin-bottom" style="max-width: 90%; margin: auto;">
-    <h2 class="w3-text-black w3-serif ">
-        
-        <a href="https://github.com/Guche02/VQA-Voyager" target="_blank" style="margin-left: 10px; font-size: 18px;">
-            Quick Lookup - Read Below : Code 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-               alt="GitHub" 
-               width="24" 
-               height="24" 
-               style="vertical-align: middle;">
-        </a>
-      </h2>
+    <h2 class="w3-text-black w3-serif">
+      <a href="https://github.com/Guche02/VQA-Voyager" target="_blank" style="margin-left: 10px;">
+        Quick Lookup - Read Below : Code 
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+             alt="GitHub" 
+             width="24" 
+             height="24" 
+             style="vertical-align: middle;">
+      </a>
+    </h2>
     <p class="w3-large w3-serif" style="text-align: justify;">
       This video showcases my Machine Learning model integration capability, where I integrated multiple deep learning models to serve a unified purpose. 
       <strong>YOLOv9</strong> was implemented to detect and recognize cultural heritages of the Kathmandu Valley. For natural language understanding, 
