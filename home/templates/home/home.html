@@ -1,21 +1,16 @@
-
-
-<div class="w3-content interests-container w3-container w3-text-white" >
+<div class="w3-content interests-container w3-container w3-text-white">
     <div class="grid">
         {% for car in cards %}
-            <a href="{% url car.link %}" class="card-link">
+            <a href="{% url car.link %}"
+               class="card-link"
+               {% if car.link == 'portfolio' or car.link == 'mcq-helper' %} target="_blank" {% endif %}>
                 <div class="card">
-                    <div class="icon problem-solving">{{car.icon}}</div>
+                    <div class="icon problem-solving">{{ car.icon }}</div>
                     <div class="text w3-serif">
-                        {{car.topic}}
+                        {{ car.topic }}
                     </div>
                 </div>
             </a>
         {% endfor %}
     </div>
 </div>
-
-
-
-
-
