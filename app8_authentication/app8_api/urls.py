@@ -6,7 +6,7 @@ from app8_authentication.forms import CustomPasswordResetForm
 
 #Google Auth
 from .import google_auth_app8
-
+ 
 urlpatterns = [
     path("", views.LandingPage, name="landing-page-app8"),
     path("register/", views.register, name="register-app8"),
@@ -31,7 +31,7 @@ urlpatterns = [
         ),
         name='login-app8'
     ),
-
+ 
     path(
         'logout-app8/pass/', 
         auth_views.LogoutView.as_view(
