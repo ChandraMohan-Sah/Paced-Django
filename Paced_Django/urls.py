@@ -25,6 +25,9 @@ urlpatterns = [
     path('app8/', include("app8_authentication.app8_api.urls")),
     path('app9/', include("app9_ml_integration.app9_api.urls")),
     path('app10/', include("app10_hierarchy.app10_hierarchy_api.urls")),
+    path('app11/', include("app11_IMDB_clone.app11_IMDB_clone_api.urls")),
+    path('app12/', include("app12_payment_gateway.app12_payment_gateway_api.urls")),
+    
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

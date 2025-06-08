@@ -43,20 +43,20 @@ cards = [
         "icon": "⏳",
         "link": "index-app7-capstone"
     },
-    {
-        "topic": "Capstone 2 : PSC MCQ Helper",
-        "icon": "👨‍🎓",
-        "link": "mcq-helper"
-    },
+    # {
+    #     "topic": "Capstone 2 : PSC MCQ Helper",
+    #     "icon": "👨‍🎓",
+    #     "link": "mcq-helper"
+    # },
     {
         "topic": "Payment Gateway",
         "icon": "➡️",
-        "link": "home"
+        "link": "payment-gateway"
     },
     {
         "topic": "DRF : IMDB Clone ",
         "icon": "🔗",
-        "link": "home"
+        "link": "imdb-clone-home"
     },
     {
         "topic": "ML Model Integration",

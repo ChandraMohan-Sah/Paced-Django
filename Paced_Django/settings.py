@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'app7_game',
     'app8_authentication',
     'app9_ml_integration',
-    'app10_hierarchy'
+    'app10_hierarchy',
+    'app11_IMDB_clone',
+    'app12_payment_gateway'
 
 ]
 
