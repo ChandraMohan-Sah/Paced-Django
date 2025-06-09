@@ -40,7 +40,7 @@ Each card on the homepage represents a standalone Django functionality:
 ## 🚀 How to Run Locally
 
 ```bash
-git clone https://github.com/yourusername/django-learning-project.git
+git clone git@github.com:ChandraMohan-Sah/Paced-Django.git
 cd django-learning-project
 pip install -r requirements.txt
 python manage.py runserver
