@@ -41,7 +41,7 @@ Each card on the homepage represents a standalone Django functionality:
 
 ```bash
 git clone git@github.com:ChandraMohan-Sah/Paced-Django.git
-cd django-learning-project
+cd Paced-Django
 pip install -r requirements.txt
 python manage.py runserver
 ```
